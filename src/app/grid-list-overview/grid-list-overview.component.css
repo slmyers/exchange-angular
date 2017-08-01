@@ -1,0 +1,14 @@
+md-grid-tile {
+  background: white;
+  border: solid lightgrey 3px;
+}
+
+md-grid-tile:hover {
+  background-color: #efb474;
+}
+
+.material-icons {
+  font-size: 96px;
+  color: black;
+  cursor: pointer;
+}

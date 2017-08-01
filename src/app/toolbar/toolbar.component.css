@@ -2,6 +2,18 @@
   flex: 1 1 auto;
 }
 
+.link-container {
+  display: flex;
+  align-items: center;
+}
+
+.link-container > * {
+  margin-left: 0.5em;
+}
+
+.material-icons {
+  margin-top: 0.2em;
+}
 
 .over {
   color: red;
