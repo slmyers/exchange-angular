@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
     <app-side-nav></app-side-nav>
     <section class="content">
       <section class="code-block">
-        <prism-block [code]="typescriptCode" [language]="'css'"></prism-block>
+        <prism-block [code]="typescriptCode" [language]="'typescript'"></prism-block>
       </section>
     </section>
   </main>
@@ -48,20 +48,20 @@ import { Component, OnInit } from '@angular/core';
       <app-side-nav></app-side-nav>
       <section class="content">
         <section class="code-block">
-          <prism-block [code]="typescriptCode" [language]="'css'"></prism-block>
+          <prism-block [code]="typescriptCode" [language]="'typescript'"></prism-block>
         </section>
       </section>
     </main>
   \`,
   styles: [\`
       main {
-      width: 95vw;
-      height: auto;
-      overflow-x: hidden;
-      overflow-y: auto;
-      background-color: transparent;
-      display: flex;
-      margin: 2rem auto;
+        width: 95vw;
+        height: auto;
+        overflow-x: hidden;
+        overflow-y: auto;
+        background-color: transparent;
+        display: flex;
+        margin: 2rem auto;
     }
 
     section.content {
