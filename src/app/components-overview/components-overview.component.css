@@ -1,0 +1,16 @@
+main {
+  width: 95vw;
+  height: auto;
+  overflow-x: hidden;
+  overflow-y: auto;
+  background-color: transparent;
+  display: flex;
+  margin: 2rem auto;
+}
+
+section.content {
+  margin-left: 2rem;
+  background-color: rgb(245, 245, 245);
+  width: 80vw;
+  border-radius: 4px;
+}

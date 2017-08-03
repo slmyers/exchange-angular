@@ -1,5 +1,12 @@
+md-grid-list {
+  width: 80vw;
+  margin: 0 auto;
+  min-height: 75vh;
+  margin-top: 5vh;
+}
+
 md-grid-tile {
-  background: white;
+  background-color: rgb(245, 245, 245);
   border: solid lightgrey 3px;
 }
 
