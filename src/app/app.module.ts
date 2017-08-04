@@ -15,6 +15,8 @@ import 'prismjs/prism';
 import 'prismjs/components/prism-typescript';
 
 import { PrismComponent } from 'angular-prism/dist/src/prism.component';
+import { HelloworldComponent } from './components-overview/helloworld/helloworld.component';
+import { ArrowNavigationComponent } from './arrow-navigation/arrow-navigation.component';
 
 const appRoutes: Routes = [
   { path: '',
@@ -34,7 +36,9 @@ const appRoutes: Routes = [
     GridListOverviewComponent,
     ComponentsOverviewComponent,
     SideNavComponent,
-    PrismComponent
+    PrismComponent,
+    HelloworldComponent,
+    ArrowNavigationComponent
   ],
   imports: [
     BrowserModule,
