@@ -1,0 +1,59 @@
+<main>
+  <section class="content">
+    <app-arrow-navigation id="right"><a routerLink=""><i class="material-icons">keyboard_arrow_right</i></a></app-arrow-navigation>
+    <app-arrow-navigation id="left"><a routerLink="/components/intro"><i class="material-icons">keyboard_arrow_left</i></a></app-arrow-navigation>
+    <section class="code-block">
+      <prism-block [code]="templateBindings" language="html"></prism-block>
+    </section>
+    <section class="bullet-points">
+      <ul title="overview points">
+        <li>
+          attributes wrapped in [] denote property bindings while those wrapped in () represent event bindings.
+        </li>
+      </ul>
+    </section>
+    <hr/>
+
+    <section class="code-block">
+      <prism-block [code]="directives" language="html"></prism-block>
+    </section>
+    <section class="bullet-points">
+      <ul title="overview points">
+        <li>
+          directives marked with * are called structural directives and will make changes to the DOM structure.
+        </li>
+
+        <li>
+          directives without this prefix are called attribute directives and are used to change the appearance or behavior of a DOM element.
+        </li>
+
+      </ul>
+    </section>
+    <hr/>
+
+    <section class="code-block">
+      <prism-block [code]="pipes" language="html"></prism-block>
+    </section>
+    <section class="bullet-points">
+      <ul title="overview points">
+
+        <li>
+          The | operator feeds input through a pipe. Analogous to AngularJS filter.
+        </li>
+
+        <li>
+          The async pipe will resolve a promise or manage an Observable such that the value is available
+          in the template.
+        </li>
+
+        <li>
+          ng-template is a wrapper around native DOM template. The # attribute is akin to an id.
+        </li>
+
+      </ul>
+    </section>
+    <hr/>
+
+
+  </section>
+</main>

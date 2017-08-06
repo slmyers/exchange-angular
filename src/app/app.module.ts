@@ -1,3 +1,5 @@
+import 'prismjs/prism';
+import 'prismjs/components/prism-typescript';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -7,16 +9,13 @@ import { MdToolbarModule, MdGridListModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { GridListOverviewComponent } from './grid-list-overview/grid-list-overview.component';
 import { ComponentsOverviewComponent } from './components-overview/components-overview.component';
-import { SideNavComponent } from './side-nav/side-nav.component';
-/* Import prism core */
-import 'prismjs/prism';
-
-/* Import the language you need to highlight */
-import 'prismjs/components/prism-typescript';
-
 import { PrismComponent } from 'angular-prism/dist/src/prism.component';
 import { HelloworldComponent } from './components-overview/helloworld/helloworld.component';
 import { ArrowNavigationComponent } from './arrow-navigation/arrow-navigation.component';
+import { IntroComponent } from './components-overview/intro/intro.component';
+import { TemplatesComponent } from './components-overview/templates/templates.component';
+
+
 
 const appRoutes: Routes = [
   { path: '',
@@ -25,7 +24,10 @@ const appRoutes: Routes = [
   },
   { path: 'components',
     component: ComponentsOverviewComponent,
-    pathMatch: 'full'
+    children: [
+      { path: 'intro',  component: IntroComponent },
+      { path: 'templates', component: TemplatesComponent }
+    ]
   }
 ];
 
@@ -35,10 +37,11 @@ const appRoutes: Routes = [
     ToolbarComponent,
     GridListOverviewComponent,
     ComponentsOverviewComponent,
-    SideNavComponent,
     PrismComponent,
     HelloworldComponent,
-    ArrowNavigationComponent
+    ArrowNavigationComponent,
+    IntroComponent,
+    TemplatesComponent
   ],
   imports: [
     BrowserModule,
@@ -47,7 +50,7 @@ const appRoutes: Routes = [
     MdGridListModule,
     RouterModule.forRoot(
       appRoutes
-    ),
+    )
   ],
   providers: [],
   bootstrap: [AppComponent]

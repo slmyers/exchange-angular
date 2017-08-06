@@ -1,0 +1,39 @@
+<main>
+  <section class="content">
+    <app-arrow-navigation id="right"><a routerLink="/components/templates"><i class="material-icons">keyboard_arrow_right</i></a></app-arrow-navigation>
+    <app-arrow-navigation id="left"><a routerLink=""><i class="material-icons">keyboard_arrow_left</i></a></app-arrow-navigation>
+    <section class="code-block">
+      <prism-block [code]="typescriptCode" language="typescript"></prism-block>
+      <app-hello-world></app-hello-world>
+      <span style="margin-left: 2em;"> Hello world</span>
+    </section>
+    <hr/>
+
+    <section class="bullet-points">
+      <ul title="overview points">
+
+        <li>
+          @ stuff is a <a href="https://www.typescriptlang.org/docs/handbook/decorators.html" target="_blank"> decorator </a>
+          This applies the meta-data to the component. There are many
+          <a href="https://angular.io/api/core/Component#metadata-overview" target="_blank">optional values.</a>
+        </li>
+
+        <li>
+          Interpolated values do not require namspacing. Compare with Angular 1.x
+          <a href="https://toddmotto.com/digging-into-angulars-controller-as-syntax/#controllers-as-classes" target="_blank">
+            Controller As syntax
+          </a>
+        </li>
+
+        <li>
+          Angular has an optional
+          <a href="https://angular.io/api/core/Component#encapsulation" target="_blank">view encapulation</a>
+          that by default compiles the styles to a css shim. This means that by default styles do not leak outside the
+          component.
+        </li>
+
+      </ul>
+    </section>
+
+  </section>
+</main>
