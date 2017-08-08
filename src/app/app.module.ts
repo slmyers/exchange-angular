@@ -14,6 +14,7 @@ import { HelloworldComponent } from './components-overview/helloworld/helloworld
 import { ArrowNavigationComponent } from './arrow-navigation/arrow-navigation.component';
 import { IntroComponent } from './components-overview/intro/intro.component';
 import { TemplatesComponent } from './components-overview/templates/templates.component';
+import { ChangeDetectionComponent } from './components-overview/change-detection/change-detection.component';
 
 
 
@@ -26,7 +27,8 @@ const appRoutes: Routes = [
     component: ComponentsOverviewComponent,
     children: [
       { path: 'intro',  component: IntroComponent },
-      { path: 'templates', component: TemplatesComponent }
+      { path: 'templates', component: TemplatesComponent },
+      { path: 'change-detection', component: ChangeDetectionComponent }
     ]
   }
 ];
@@ -41,7 +43,8 @@ const appRoutes: Routes = [
     HelloworldComponent,
     ArrowNavigationComponent,
     IntroComponent,
-    TemplatesComponent
+    TemplatesComponent,
+    ChangeDetectionComponent
   ],
   imports: [
     BrowserModule,

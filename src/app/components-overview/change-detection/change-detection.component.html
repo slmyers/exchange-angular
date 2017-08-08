@@ -1,0 +1,43 @@
+<main>
+  <section class="content">
+    <app-arrow-navigation id="right"><a routerLink=""><i class="material-icons">keyboard_arrow_right</i></a></app-arrow-navigation>
+    <app-arrow-navigation id="left"><a routerLink="/components/templates"><i class="material-icons">keyboard_arrow_left</i></a></app-arrow-navigation>
+
+    <section class="bullet-points">
+      <ul title="overview points">
+
+        <li>
+          There is no more `$digest` cycle.
+        </li>
+
+        <li>
+          Angular runs in a `Zone`. This is an area of the DOM in which async methods are intercepted and managed by `Zone.js`.
+        </li>
+
+        <li>
+          This means that change detection is ran only when asynchronous code could have altered our data.
+        </li>
+      </ul>
+    </section>
+    <hr/>
+
+    <section class="code-block">
+      <prism-block [code]="onPush" language="typescript"></prism-block>
+    </section>
+    <section class="bullet-points">
+      <ul title="overview points">
+
+        <li>
+          One can set the component meta-data such that change detection for this component is only ran `OnPush`
+        </li>
+
+        <li>
+          This will also effect components further down the component tree.
+        </li>
+
+      </ul>
+    </section>
+    <hr/>
+
+  </section>
+</main>
