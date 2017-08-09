@@ -1,0 +1,32 @@
+<main>
+  <section class="content">
+    <app-arrow-navigation id="right"><a routerLink=""><i class="material-icons">keyboard_arrow_right</i></a></app-arrow-navigation>
+    <app-arrow-navigation id="left"><a routerLink=""><i class="material-icons">keyboard_arrow_left</i></a></app-arrow-navigation>
+
+    <h2 style="margin-left: 40%; margin-bottom: 1.5rem;">Template Driven Form</h2>
+
+    <section class="code-block">
+      <prism-block [code]="templateExample" language="html"></prism-block>
+    </section>
+    <section class="code-block">
+      <prism-block [code]="templateComponent" language="typescript"></prism-block>
+    </section>
+    <section class="bullet-points">
+      <form #f="ngForm" (ngSubmit)="submit(f)">
+        <span> <input placeholder="name" [(ngModel)]="name" name="name"/> </span>
+        <span> <input placeholder="age" [(ngModel)]="age" name="age"/> </span>
+        <button type="submit">Submit</button>
+      </form>
+    </section>
+
+    <section class="bullet-points">
+      <ul title="overview points">
+
+      </ul>
+    </section>
+    <hr/>
+
+
+
+  </section>
+</main>

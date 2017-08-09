@@ -3,6 +3,7 @@ import 'prismjs/components/prism-typescript';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { ToolbarComponent } from './toolbar/toolbar.component';
 import { MdToolbarModule, MdGridListModule } from '@angular/material';
@@ -15,6 +16,8 @@ import { ArrowNavigationComponent } from './arrow-navigation/arrow-navigation.co
 import { IntroComponent } from './components-overview/intro/intro.component';
 import { TemplatesComponent } from './components-overview/templates/templates.component';
 import { ChangeDetectionComponent } from './components-overview/change-detection/change-detection.component';
+import { ReactiveFormsOverviewComponent } from './reactive-forms-overview/reactive-forms-overview.component';
+import { ComparisonComponent } from './reactive-forms-overview/comparison/comparison.component';
 
 
 
@@ -30,6 +33,13 @@ const appRoutes: Routes = [
       { path: 'templates', component: TemplatesComponent },
       { path: 'change-detection', component: ChangeDetectionComponent }
     ]
+  },
+  {
+    path: 'reactive-forms',
+    component: ReactiveFormsOverviewComponent,
+    children: [
+      { path: 'comparison-with-template-forms', component: ComparisonComponent }
+    ]
   }
 ];
 
@@ -44,7 +54,9 @@ const appRoutes: Routes = [
     ArrowNavigationComponent,
     IntroComponent,
     TemplatesComponent,
-    ChangeDetectionComponent
+    ChangeDetectionComponent,
+    ReactiveFormsOverviewComponent,
+    ComparisonComponent
   ],
   imports: [
     BrowserModule,
@@ -53,7 +65,9 @@ const appRoutes: Routes = [
     MdGridListModule,
     RouterModule.forRoot(
       appRoutes
-    )
+    ),
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
