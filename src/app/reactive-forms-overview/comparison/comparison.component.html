@@ -13,15 +13,25 @@
     </section>
     <section class="bullet-points">
       <form #f="ngForm" (ngSubmit)="submit(f)">
-        <span> <input placeholder="name" [(ngModel)]="name" name="name"/> </span>
+        <span> <input placeholder="name" [(ngModel)]="name" name="name" required /> </span>
         <span> <input placeholder="age" [(ngModel)]="age" name="age"/> </span>
-        <button type="submit">Submit</button>
+        <button type="submit" [disabled]="!f.valid">Submit</button>
       </form>
     </section>
 
     <section class="bullet-points">
       <ul title="overview points">
+        <li>
+          This is a `template driven form`. Very similar to an AngularJS form.
+        </li>
 
+        <li>
+          How to get a reference to the form variable? How to react to the form changes before submit?
+        </li>
+
+        <li>
+          Validation is encapsulated in the template.
+        </li>
       </ul>
     </section>
     <hr/>

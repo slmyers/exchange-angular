@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-comparison',
@@ -9,24 +9,15 @@ export class ComparisonComponent {
 
   templateExample = `
   <form #f="ngForm" (ngSubmit)="submit(f)">
-    <span> <input placeholder="name" [(ngModel)]="name" name="name"/> </span>
+    <span> <input placeholder="name" [(ngModel)]="name" name="name" required/> </span>
     <span> <input placeholder="age" [(ngModel)]="age" name="age"/> </span>
-    <button type="submit">Submit</button>
+    <button type="submit" [disabled]="!f.valid">Submit</button>
   </form>
 `;
   templateComponent = `
 export class SomeComponent {
-  name;
-  age;
-  
   submit(f) {
     console.log(f);
-
-    alert(JSON.stringify({
-      name: this.name,
-      age: this.age
-    }));
-
     alert(JSON.stringify(f.value));
   }
 }
@@ -34,12 +25,6 @@ export class SomeComponent {
 
   submit(f) {
     console.log(f);
-  /*
-    alert(JSON.stringify({
-      name: this.name,
-      age: this.age
-    }));
-  */
     alert(JSON.stringify(f.value));
   }
 
