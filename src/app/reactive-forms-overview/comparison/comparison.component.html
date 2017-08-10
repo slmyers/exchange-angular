@@ -14,7 +14,7 @@
     <section class="bullet-points">
       <form #f="ngForm" (ngSubmit)="submit(f)">
         <span> <input placeholder="name" [(ngModel)]="name" name="name" required /> </span>
-        <span> <input placeholder="age" [(ngModel)]="age" name="age"/> </span>
+        <span> <input placeholder="age" [(ngModel)]="age" name="age" pattern="[0-9]+" required /> </span>
         <button type="submit" [disabled]="!f.valid">Submit</button>
       </form>
     </section>
@@ -28,15 +28,38 @@
         <li>
           How to get a reference to the form variable? How to react to the form changes before submit?
         </li>
-
-        <li>
-          Validation is encapsulated in the template.
-        </li>
       </ul>
     </section>
     <hr/>
 
+    <section class="code-block">
+      <prism-block [code]="reactiveExample" language="html"></prism-block>
+    </section>
+    <section class="code-block">
+      <prism-block [code]="reactiveComponent" language="typescript"></prism-block>
+    </section>
+    <section class="bullet-points">
+      <form class="reactive-auto-complete" novalidate (ngSubmit)="submit(myForm)" [formGroup]="myForm">
+        <span> <input placeholder="name" formControlName="name"/> </span>
+        <span> <input placeholder="age" formControlName="age"/> </span>
+        <button type="submit" [disabled]="!myForm.valid">Submit</button>
+      </form>
+      <ul title="overview points">
 
+        <li>
+          Data structure so you can leverage services and pass `FormGroup` as a property.
+        </li>
 
+        <li>
+          `FormGroup#valueChanges` exposes an `Observable`.
+        </li>
+
+        <li>
+          Allows for easily modifying validators and Async validation.
+        </li>
+
+      </ul>
+    </section>
+    <hr/>
   </section>
 </main>
