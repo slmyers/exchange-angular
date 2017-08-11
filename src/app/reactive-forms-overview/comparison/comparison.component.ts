@@ -26,7 +26,13 @@ export class SomeComponent {
 
 
   reactiveExample = `
-<form class="reactive-auto-complete" novalidate (ngSubmit)="submit(myForm)" [formGroup]="myForm"> 
+<div> Async validation ran: {{asyncValidationRun}}</div>
+<form 
+    class="reactive-auto-complete" 
+    [ngStyle]="{'border': myForm.valid ? 'blue solid 1px' : 'red solid 1px'}" 
+    novalidate 
+    (ngSubmit)="submit(myForm)" 
+    [formGroup]="myForm"> 
   <span> <input placeholder="name" formControlName="name"/> </span>
   <span> <input placeholder="age" formControlName="age"/> </span>
   <button type="submit" [disabled]="!myForm.valid">Submit</button>
@@ -35,27 +41,61 @@ export class SomeComponent {
 
   reactiveComponent = `
 myForm: FormGroup;
+asyncValidationRun = false;
 ngOnInit() {
   this.myForm = new FormGroup({
     name: new FormControl('', Validators.required),
-    age: new FormControl('', Validators.compose([Validators.pattern('[0-9]+$'), Validators.required]) )
+    age: new FormControl('', Validators.compose([Validators.pattern('[0-9]+$'), Validators.required]))
+  }, null, this.validateAsync.bind(this));
+}
+validateAsync(c: FormControl) {
+  return new Promise( (resolve, reject) => {
+    const name = c.value.name;
+    const valid = name.startsWith('s');
+    this.asyncValidationRun = true;
+
+    setTimeout( () => {
+      if (valid) {
+        resolve(null);
+      } else {
+        reject({'invalid-name': name});
+      }
+    }, 200);
   });
-} 
+}
 `;
 
 
   myForm: FormGroup;
+  asyncValidationRun = false;
   ngOnInit() {
     this.myForm = new FormGroup({
       name: new FormControl('', Validators.required),
       age: new FormControl('', Validators.compose([Validators.pattern('[0-9]+$'), Validators.required]) )
-    });
-  }
+    }, null, this.validateAsync.bind(this));
 
+  }
 
   submit(f) {
     console.log(f);
     alert(JSON.stringify(f.value));
+  }
+
+  validateAsync(c: FormControl) {
+    return new Promise( (resolve, reject) => {
+      const name = c.value.name;
+      const valid = name.startsWith('s');
+      this.asyncValidationRun = true;
+
+      setTimeout( () => {
+        if (valid) {
+          resolve(null);
+        } else {
+          reject({'invalid-name': name});
+        }
+      }, 200);
+
+    });
   }
 
 }

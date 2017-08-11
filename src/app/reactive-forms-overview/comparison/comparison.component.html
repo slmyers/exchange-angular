@@ -32,6 +32,7 @@
     </section>
     <hr/>
 
+    <h2 style="margin-left: 40%; margin-bottom: 1.5rem;">Reactive Form</h2>
     <section class="code-block">
       <prism-block [code]="reactiveExample" language="html"></prism-block>
     </section>
@@ -39,7 +40,8 @@
       <prism-block [code]="reactiveComponent" language="typescript"></prism-block>
     </section>
     <section class="bullet-points">
-      <form class="reactive-auto-complete" novalidate (ngSubmit)="submit(myForm)" [formGroup]="myForm">
+      <div> Async validation ran: {{asyncValidationRun}}</div>
+      <form class="reactive-auto-complete" [ngStyle]="{'border': myForm.valid ? 'blue solid 1px' : 'red solid 1px'}"  novalidate (ngSubmit)="submit(myForm)" [formGroup]="myForm">
         <span> <input placeholder="name" formControlName="name"/> </span>
         <span> <input placeholder="age" formControlName="age"/> </span>
         <button type="submit" [disabled]="!myForm.valid">Submit</button>
@@ -55,7 +57,7 @@
         </li>
 
         <li>
-          Allows for easily modifying validators and Async validation.
+          Allows for easily modifying validators and Async validation -- Async validator will only run after the sync validators are valid.
         </li>
 
       </ul>
