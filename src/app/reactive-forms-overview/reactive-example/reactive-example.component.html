@@ -1,0 +1,29 @@
+<main>
+  <section class="content">
+    <app-arrow-navigation id="right"><a routerLink=""><i class="material-icons">keyboard_arrow_right</i></a></app-arrow-navigation>
+    <app-arrow-navigation id="left"><a routerLink="/reactive-forms/comparison-with-template-forms"><i class="material-icons">keyboard_arrow_left</i></a></app-arrow-navigation>
+
+    <h2 style="margin-left: 40%; margin-bottom: 1.5rem;">Contrived Reactive Example</h2>
+
+    <section class="example" [formGroup]="form">
+
+      <md-select formControlName="color" placeholder="Select Color" [style.border-left-color]="form.value.color">
+        <md-option *ngFor="let option of options" [value]="option">
+          <span [style.border-left-color]="option"> {{ option }}</span>
+        </md-option>
+      </md-select>
+
+      <md-input-container>
+        <input type="text" placeholder="brand" mdInput formControlName="brand" [mdAutocomplete]="auto">
+      </md-input-container>
+
+      <md-autocomplete #auto="mdAutocomplete">
+        <md-option *ngFor="let option of brands | async" [value]="option">
+          {{ option }}
+        </md-option>
+      </md-autocomplete>
+
+    </section>
+
+  </section>
+</main>

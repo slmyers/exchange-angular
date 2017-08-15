@@ -6,7 +6,10 @@ import { RouterModule, Routes } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { ToolbarComponent } from './toolbar/toolbar.component';
-import { MdToolbarModule, MdGridListModule } from '@angular/material';
+import {
+  MdToolbarModule, MdGridListModule,
+  MdSelectModule, MdAutocompleteModule,
+  MdInputModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { GridListOverviewComponent } from './grid-list-overview/grid-list-overview.component';
 import { ComponentsOverviewComponent } from './components-overview/components-overview.component';
@@ -18,7 +21,8 @@ import { TemplatesComponent } from './components-overview/templates/templates.co
 import { ChangeDetectionComponent } from './components-overview/change-detection/change-detection.component';
 import { ReactiveFormsOverviewComponent } from './reactive-forms-overview/reactive-forms-overview.component';
 import { ComparisonComponent } from './reactive-forms-overview/comparison/comparison.component';
-
+import { ReactiveExampleComponent } from './reactive-forms-overview/reactive-example/reactive-example.component';
+import { FormServiceService } from './reactive-forms-overview/reactive-example/form-service.service'
 
 
 const appRoutes: Routes = [
@@ -38,7 +42,8 @@ const appRoutes: Routes = [
     path: 'reactive-forms',
     component: ReactiveFormsOverviewComponent,
     children: [
-      { path: 'comparison-with-template-forms', component: ComparisonComponent }
+      { path: 'comparison-with-template-forms', component: ComparisonComponent },
+      { path: 'example', component: ReactiveExampleComponent }
     ]
   }
 ];
@@ -56,20 +61,24 @@ const appRoutes: Routes = [
     TemplatesComponent,
     ChangeDetectionComponent,
     ReactiveFormsOverviewComponent,
-    ComparisonComponent
+    ComparisonComponent,
+    ReactiveExampleComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     MdToolbarModule,
     MdGridListModule,
+    MdSelectModule,
+    MdAutocompleteModule,
+    MdInputModule,
     RouterModule.forRoot(
       appRoutes
     ),
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [FormServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

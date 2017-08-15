@@ -49,20 +49,22 @@ ngOnInit() {
   }, null, this.validateAsync.bind(this));
 }
 validateAsync(c: FormControl) {
-  return new Promise( (resolve, reject) => {
-    const name = c.value.name;
-    const valid = name.startsWith('s');
-    this.asyncValidationRun = true;
+    return new Promise( (resolve, reject) => {
+      const name = c.value.name;
+      const age = c.value.age;
+      const valid = ( name.toLowerCase().trim() === 'john' && age === '23' );
+      this.asyncValidationRun = true;
 
-    setTimeout( () => {
-      if (valid) {
-        resolve(null);
-      } else {
-        reject({'invalid-name': name});
-      }
-    }, 200);
-  });
-}
+      setTimeout( () => {
+        if (valid) {
+          resolve(null);
+        } else {
+          reject({'invalid-name': name});
+        }
+      }, 200);
+
+    });
+  }
 `;
 
 
@@ -84,7 +86,8 @@ validateAsync(c: FormControl) {
   validateAsync(c: FormControl) {
     return new Promise( (resolve, reject) => {
       const name = c.value.name;
-      const valid = name.startsWith('s');
+      const age = c.value.age;
+      const valid = ( name.toLowerCase().trim() === 'john' && age === '23' );
       this.asyncValidationRun = true;
 
       setTimeout( () => {
