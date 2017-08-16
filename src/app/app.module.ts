@@ -22,8 +22,8 @@ import { ChangeDetectionComponent } from './components-overview/change-detection
 import { ReactiveFormsOverviewComponent } from './reactive-forms-overview/reactive-forms-overview.component';
 import { ComparisonComponent } from './reactive-forms-overview/comparison/comparison.component';
 import { ReactiveExampleComponent } from './reactive-forms-overview/reactive-example/reactive-example.component';
-import { FormServiceService } from './reactive-forms-overview/reactive-example/form-service.service'
-
+import { FormServiceService } from './reactive-forms-overview/reactive-example/form-service.service';
+import { FakeApiService } from './reactive-forms-overview/reactive-example/fake-api.service';
 
 const appRoutes: Routes = [
   { path: '',
@@ -78,7 +78,7 @@ const appRoutes: Routes = [
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [FormServiceService],
+  providers: [FormServiceService, FakeApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

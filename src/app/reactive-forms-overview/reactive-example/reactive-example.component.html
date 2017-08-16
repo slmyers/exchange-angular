@@ -14,7 +14,7 @@
       </md-select>
 
       <md-input-container>
-        <input type="text" placeholder="brand" mdInput formControlName="brand" [mdAutocomplete]="auto">
+        <input type="text" placeholder="brand" mdInput formControlName="brand" [mdAutocomplete]="auto" (keyup)="blurOnEnter($event)">
       </md-input-container>
 
       <md-autocomplete #auto="mdAutocomplete">

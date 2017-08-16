@@ -16,14 +16,14 @@ export class ReactiveExampleComponent implements OnInit {
     'red',
     'green',
     'black'
-  ];
+  ].sort( (a, b) => a.localeCompare(b));
   private brandOptions = [
     'ford',
     'honda',
     'hondai',
     'hondiaia',
     'chevrolet'
-  ];
+  ].sort( (a, b) => a.localeCompare(b));
 
   protected brands: Observable<string[]>;
 
@@ -39,6 +39,12 @@ export class ReactiveExampleComponent implements OnInit {
 
   filter(val): string[] {
     return this.brandOptions.filter(option => new RegExp(`^${val}`, 'gi').test(option));
+  }
+
+  blurOnEnter($event) {
+    if ($event.key === 'Enter') {
+      $event.target.blur();
+    }
   }
 
 }
