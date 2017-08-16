@@ -12,13 +12,14 @@ export class FormServiceService {
     this.form = fb.group({
       'color': [''],
       'brand': ['']
-    }, null, );
+    }, null /*add custom validator to make sure one field is present */,
+      /* add async validator so that if nothing is returned it errs, otherwise next the returned content into content$ */);
 
     this.content$ = Observable.create();
   }
 
   validateAsync(c: FormControl) {
-    
+
   }
 
 }
