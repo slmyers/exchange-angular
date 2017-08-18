@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 
 @Injectable()
 export class FakeApiService {
-  private colorMap: Map<string, any[]>;
-  private manufactureMap: Map<string, any[]>;
+  private colorMap = new Map<string, any[]>();
+  private manufactureMap = new Map<string, any[]>();
 
   constructor() {
     this.colorMap.set('red', [
@@ -51,14 +51,23 @@ export class FakeApiService {
   }
 
   getByColor(color): Promise<any[]> {
+
     return Promise.resolve(this.colorMap.get(color));
   }
 
   getByBoth(name, color): Promise<any[]> {
     const manufacturer = this.manufactureMap.get(name);
 
-    if (!manufacturer) return Promise.resolve([]);
+    if (!manufacturer) return this.resolveValueWithDelay([], 200);
 
-    return Promise.resolve(manufacturer.filter(i => i.color === color));
+    const items = manufacturer.filter(i => i.color === color);
+
+    return this.resolveValueWithDelay(items, 200);
+  }
+
+  resolveValueWithDelay(val, delay) {
+    return new Promise(resolve => {
+      setTimeout( () => resolve(val), delay);
+    });
   }
 }

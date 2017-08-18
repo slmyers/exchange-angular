@@ -11,13 +11,14 @@ import 'rxjs/add/operator/startWith';
   styleUrls: ['./reactive-example.component.css']
 })
 export class ReactiveExampleComponent implements OnInit {
-  protected form: FormGroup;
-  protected options = [
+  form: FormGroup;
+  content$: Observable<any>;
+  options = [
     'red',
     'green',
     'black'
   ].sort( (a, b) => a.localeCompare(b));
-  private brandOptions = [
+  brandOptions = [
     'ford',
     'honda',
     'hondai',
@@ -25,7 +26,7 @@ export class ReactiveExampleComponent implements OnInit {
     'chevrolet'
   ].sort( (a, b) => a.localeCompare(b));
 
-  protected brands: Observable<string[]>;
+  brands: Observable<string[]>;
 
   constructor(private fs: FormServiceService ) { }
 
@@ -35,16 +36,11 @@ export class ReactiveExampleComponent implements OnInit {
     this.brands = this.form.get('brand').valueChanges
       .startWith(null)
       .map(val => val ? this.filter(val) : this.brandOptions);
+
+    this.content$ = this.fs.content$.asObservable();
   }
 
   filter(val): string[] {
     return this.brandOptions.filter(option => new RegExp(`^${val}`, 'gi').test(option));
   }
-
-  blurOnEnter($event) {
-    if ($event.key === 'Enter') {
-      $event.target.blur();
-    }
-  }
-
 }

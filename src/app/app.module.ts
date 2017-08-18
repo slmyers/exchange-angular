@@ -9,7 +9,7 @@ import { ToolbarComponent } from './toolbar/toolbar.component';
 import {
   MdToolbarModule, MdGridListModule,
   MdSelectModule, MdAutocompleteModule,
-  MdInputModule } from '@angular/material';
+  MdInputModule, MdListModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { GridListOverviewComponent } from './grid-list-overview/grid-list-overview.component';
 import { ComponentsOverviewComponent } from './components-overview/components-overview.component';
@@ -72,6 +72,7 @@ const appRoutes: Routes = [
     MdSelectModule,
     MdAutocompleteModule,
     MdInputModule,
+    MdListModule,
     RouterModule.forRoot(
       appRoutes
     ),

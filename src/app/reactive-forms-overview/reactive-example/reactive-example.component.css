@@ -81,3 +81,18 @@ md-option > span {
 md-select {
   border-left: 10px solid;
 }
+
+.centered {
+  width: 50%;
+  margin: 0 auto;
+}
+
+.spacer {
+  margin-top: 1em;
+  margin-bottom: 1em;
+  width: 100%;
+}
+
+md-list-item {
+  border-left: black solid 4px;
+}
