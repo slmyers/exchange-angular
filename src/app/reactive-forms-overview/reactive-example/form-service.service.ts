@@ -1,4 +1,4 @@
-import { Injectable, Inject } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
 import { Subject } from 'rxjs/Subject';
 import { Observable } from 'rxjs/Observable';
@@ -15,7 +15,7 @@ export class FormServiceService {
   form: FormGroup;
   content$: Subject<any>;
 
-  constructor(@Inject(FormBuilder)fb: FormBuilder, private api: FakeApiService) {
+  constructor(private fb: FormBuilder, private api: FakeApiService) {
 
     this.form = fb.group({
       'color': [''],
@@ -31,24 +31,13 @@ export class FormServiceService {
   static validateSync(c: FormControl) {
     const color = c.get('color').value;
     const brand = c.get('brand').value;
-
-    if (color === '' || brand === '') {
-      return {emptyField: 'One or more empty fields'};
-    }
-    return null;
+    return (color === '' || brand === '') ? { emptyField: true } : null;
   }
 
   validateAsync(c: FormControl) {
     return Observable.of(c.value)
-      .do( _ => console.log(_))
       .switchMap( val => this.api.getByBoth(val.brand, val.color))
-      .do( thing => console.log(thing))
       .do(content => this.content$.next(content))
-      .map((content: any[]) => {
-        if (content.length > 0) {
-          return {};
-        }
-        return {emptyResponse: true};
-      });
+      .map((content: any[]) => content.length > 0 ? null : {emptyResponse: true});
   }
 }
