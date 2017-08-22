@@ -1,0 +1,16 @@
+<main>
+  <section class="content">
+    <app-arrow-navigation id="right"><a routerLink=""><i class="material-icons">keyboard_arrow_right</i></a></app-arrow-navigation>
+    <app-arrow-navigation id="left"><a routerLink="/routing/configuration/"><i class="material-icons">keyboard_arrow_left</i></a></app-arrow-navigation>
+    <section class="code-block">
+      <prism-block [code]="auxRoute" language="typescript"></prism-block>
+    </section>
+    <section class="code-block">
+      <prism-block [code]="auxMarkup" language="html"></prism-block>
+    </section>
+    <hr/>
+    <router-outlet name="modal"></router-outlet>
+    <a [routerLink]="[ {outlets: { modal: 'modal' } } ]"><button md-button>Open Modal</button></a>
+
+  </section>
+</main>

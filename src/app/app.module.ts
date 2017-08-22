@@ -9,7 +9,8 @@ import { ToolbarComponent } from './toolbar/toolbar.component';
 import {
   MdToolbarModule, MdGridListModule,
   MdSelectModule, MdAutocompleteModule,
-  MdInputModule, MdListModule } from '@angular/material';
+  MdInputModule, MdListModule,
+  MdDialogModule, MdButtonModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { GridListOverviewComponent } from './grid-list-overview/grid-list-overview.component';
 import { ComponentsOverviewComponent } from './components-overview/components-overview.component';
@@ -24,13 +25,19 @@ import { ComparisonComponent } from './reactive-forms-overview/comparison/compar
 import { ReactiveExampleComponent } from './reactive-forms-overview/reactive-example/reactive-example.component';
 import { FormServiceService } from './reactive-forms-overview/reactive-example/form-service.service';
 import { FakeApiService } from './reactive-forms-overview/reactive-example/fake-api.service';
+import { RouterOverviewComponent } from './router-overview/router-overview.component';
+import { RouterConfigurationComponent } from './router-overview/router-configuration/router-configuration.component';
+import { AuxiliaryRoutesComponent } from './router-overview/auxiliary-routes/auxiliary-routes.component';
+import { MyModalComponent, MyModalDialog } from './router-overview/auxiliary-routes/my-modal/my-modal.component';
 
 const appRoutes: Routes = [
-  { path: '',
+  {
+    path: '',
     component: GridListOverviewComponent,
     pathMatch: 'full'
   },
-  { path: 'components',
+  {
+    path: 'components',
     component: ComponentsOverviewComponent,
     children: [
       { path: 'intro',  component: IntroComponent },
@@ -44,6 +51,24 @@ const appRoutes: Routes = [
     children: [
       { path: 'comparison-with-template-forms', component: ComparisonComponent },
       { path: 'example', component: ReactiveExampleComponent }
+    ]
+  },
+  {
+    path: 'routing',
+    component: RouterOverviewComponent,
+    children: [
+      { path: 'configuration', component: RouterConfigurationComponent },
+      {
+        path: 'auxiliary-routes',
+        component: AuxiliaryRoutesComponent,
+        children: [
+          {
+            path: 'modal',
+            outlet: 'modal',
+            component: MyModalComponent
+          }
+        ]
+      }
     ]
   }
 ];
@@ -62,7 +87,12 @@ const appRoutes: Routes = [
     ChangeDetectionComponent,
     ReactiveFormsOverviewComponent,
     ComparisonComponent,
-    ReactiveExampleComponent
+    ReactiveExampleComponent,
+    RouterOverviewComponent,
+    RouterConfigurationComponent,
+    AuxiliaryRoutesComponent,
+    MyModalComponent,
+    MyModalDialog
   ],
   imports: [
     BrowserModule,
@@ -73,13 +103,17 @@ const appRoutes: Routes = [
     MdAutocompleteModule,
     MdInputModule,
     MdListModule,
+    MdDialogModule,
+    MdButtonModule,
     RouterModule.forRoot(
-      appRoutes
+      appRoutes,
+      { enableTracing: true }
     ),
     FormsModule,
     ReactiveFormsModule
   ],
   providers: [FormServiceService, FakeApiService],
+  entryComponents: [ MyModalDialog ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

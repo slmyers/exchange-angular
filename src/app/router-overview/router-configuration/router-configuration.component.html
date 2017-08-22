@@ -1,0 +1,19 @@
+<main>
+  <section class="content">
+    <app-arrow-navigation id="right"><a routerLink="/routing/auxiliary-routes/"><i class="material-icons">keyboard_arrow_right</i></a></app-arrow-navigation>
+    <app-arrow-navigation id="left"><a routerLink=""><i class="material-icons">keyboard_arrow_left</i></a></app-arrow-navigation>
+    <section class="code-block">
+      <prism-block [code]="routerConfiguration" language="typescript"></prism-block>
+    </section>
+    Taken from <a href="https://angular.io/guide/router#configuration" target="_blank">here</a>.
+    <hr/>
+
+    <section class="bullet-points">
+      <ul title="overview points">
+        <li>Routes are an array of plain objects.</li>
+        <li>"basic" routing is straightforward; redirects, static data, easy debugging etc.</li>
+      </ul>
+    </section>
+
+  </section>
+</main>
