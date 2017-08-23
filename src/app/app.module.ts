@@ -14,9 +14,7 @@ import {
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { GridListOverviewComponent } from './grid-list-overview/grid-list-overview.component';
 import { ComponentsOverviewComponent } from './components-overview/components-overview.component';
-import { PrismComponent } from 'angular-prism/dist/src/prism.component';
 import { HelloworldComponent } from './components-overview/helloworld/helloworld.component';
-import { ArrowNavigationComponent } from './arrow-navigation/arrow-navigation.component';
 import { IntroComponent } from './components-overview/intro/intro.component';
 import { TemplatesComponent } from './components-overview/templates/templates.component';
 import { ChangeDetectionComponent } from './components-overview/change-detection/change-detection.component';
@@ -29,6 +27,7 @@ import { RouterOverviewComponent } from './router-overview/router-overview.compo
 import { RouterConfigurationComponent } from './router-overview/router-configuration/router-configuration.component';
 import { AuxiliaryRoutesComponent } from './router-overview/auxiliary-routes/auxiliary-routes.component';
 import { MyModalComponent, MyModalDialog } from './router-overview/auxiliary-routes/my-modal/my-modal.component';
+import { SharedModule } from './shared/shared.module';
 
 const appRoutes: Routes = [
   {
@@ -68,6 +67,10 @@ const appRoutes: Routes = [
             component: MyModalComponent
           }
         ]
+      },
+      {
+        path: 'lazy-load',
+        loadChildren: 'app/lazy/lazy.module#LazyModule'
       }
     ]
   }
@@ -79,9 +82,7 @@ const appRoutes: Routes = [
     ToolbarComponent,
     GridListOverviewComponent,
     ComponentsOverviewComponent,
-    PrismComponent,
     HelloworldComponent,
-    ArrowNavigationComponent,
     IntroComponent,
     TemplatesComponent,
     ChangeDetectionComponent,
@@ -110,7 +111,8 @@ const appRoutes: Routes = [
       { enableTracing: true }
     ),
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    SharedModule
   ],
   providers: [FormServiceService, FakeApiService],
   entryComponents: [ MyModalDialog ],

@@ -1,0 +1,26 @@
+<main>
+  <section class="content">
+    <app-arrow-navigation id="right"><a routerLink="/"><i class="material-icons">keyboard_arrow_right</i></a></app-arrow-navigation>
+    <app-arrow-navigation id="left"><a routerLink="/routing/auxiliary-routes/"><i class="material-icons">keyboard_arrow_left</i></a></app-arrow-navigation>
+
+    <h2 style="margin-left: 40%; margin-bottom: 1.5rem;">Lazily Loaded Content</h2>
+
+    <section class="code-block">
+      <prism-block [code]="lazyloadDeclaration" language="typescript"></prism-block>
+    </section>
+
+    <section class="bullet-points">
+      <ul title="overview points">
+        <li>
+          The `loadChildren` property takes a relative url to an `ngModule` with the `#moduleName` suffix.
+        </li>
+
+        <li>
+          The CLI will create a create a webpack bundle that will load on navigation. I'm not sure how this would be handled using
+          another build tool.
+        </li>
+      </ul>
+    </section>
+
+  </section>
+</main>
