@@ -28,6 +28,8 @@ import { RouterConfigurationComponent } from './router-overview/router-configura
 import { AuxiliaryRoutesComponent } from './router-overview/auxiliary-routes/auxiliary-routes.component';
 import { MyModalComponent, MyModalDialog } from './router-overview/auxiliary-routes/my-modal/my-modal.component';
 import { SharedModule } from './shared/shared.module';
+import { ToolingOverviewComponent } from './tooling-overview/tooling-overview.component';
+import { NgCliComponent } from './tooling-overview/ng-cli/ng-cli.component';
 
 const appRoutes: Routes = [
   {
@@ -73,6 +75,13 @@ const appRoutes: Routes = [
         loadChildren: 'app/lazy/lazy.module#LazyModule'
       }
     ]
+  },
+  {
+    path: 'tooling',
+    component: ToolingOverviewComponent,
+    children: [
+      { path: 'ng-cli', component: NgCliComponent }
+    ]
   }
 ];
 
@@ -93,7 +102,9 @@ const appRoutes: Routes = [
     RouterConfigurationComponent,
     AuxiliaryRoutesComponent,
     MyModalComponent,
-    MyModalDialog
+    MyModalDialog,
+    ToolingOverviewComponent,
+    NgCliComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,55 @@
+main {
+  width: 95vw;
+  height: auto;
+  overflow-x: hidden;
+  overflow-y: auto;
+  background-color: transparent;
+  display: flex;
+  margin: 5rem auto 2rem auto;
+  position: relative;
+}
+
+section.content {
+  width: 80%;
+  border-radius: 4px;
+  margin: 0 auto;
+}
+
+app-arrow-navigation {
+  position: absolute;
+}
+
+app-arrow-navigation#right {
+  right: 1em;
+  top: 5em;
+}
+
+app-arrow-navigation#left {
+  left: 1em;
+  top: 5em;
+}
+
+section.code-block {
+  width: auto;
+  margin: 1em auto;
+}
+
+section.bullet-points {
+  width: 70vw;
+  margin-top: 0.2em;
+}
+
+section > app-hello-world {
+  margin: 100% 0;
+}
+
+li {
+  line-height: 175%;
+  font-size: 175%;
+}
+
+i.material-icons {
+  font-size: 48px;
+  color: darkorange;
+  cursor: pointer;
+}
