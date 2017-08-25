@@ -30,6 +30,7 @@ import { MyModalComponent, MyModalDialog } from './router-overview/auxiliary-rou
 import { SharedModule } from './shared/shared.module';
 import { ToolingOverviewComponent } from './tooling-overview/tooling-overview.component';
 import { NgCliComponent } from './tooling-overview/ng-cli/ng-cli.component';
+import { AngularLanguageServicesComponent } from './tooling-overview/angular-language-services/angular-language-services.component';
 
 const appRoutes: Routes = [
   {
@@ -104,7 +105,8 @@ const appRoutes: Routes = [
     MyModalComponent,
     MyModalDialog,
     ToolingOverviewComponent,
-    NgCliComponent
+    NgCliComponent,
+    AngularLanguageServicesComponent
   ],
   imports: [
     BrowserModule,
