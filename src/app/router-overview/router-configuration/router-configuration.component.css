@@ -54,3 +54,26 @@ i.material-icons {
   color: darkorange;
   cursor: pointer;
 }
+
+
+/* specific to this component */
+.color-output {
+  margin-left: 15vw;
+  border: solid 1px lightgrey;
+  padding: 1em;
+  display: flex;
+  justify-content: space-around;
+}
+
+.color-output > div {
+  border: solid 1px white;
+}
+
+.active-link {
+  padding: 1px;
+  border: dashed 1px burlywood;
+}
+
+.inactive {
+  text-decoration: none;
+}
