@@ -32,6 +32,7 @@ import { ToolingOverviewComponent } from './tooling-overview/tooling-overview.co
 import { NgCliComponent } from './tooling-overview/ng-cli/ng-cli.component';
 import { AngularLanguageServicesComponent } from './tooling-overview/angular-language-services/angular-language-services.component';
 
+
 const appRoutes: Routes = [
   {
     path: '',
@@ -106,7 +107,7 @@ const appRoutes: Routes = [
     MyModalDialog,
     ToolingOverviewComponent,
     NgCliComponent,
-    AngularLanguageServicesComponent
+    AngularLanguageServicesComponent,
   ],
   imports: [
     BrowserModule,

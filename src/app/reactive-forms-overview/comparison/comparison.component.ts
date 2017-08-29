@@ -7,6 +7,9 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
   styleUrls: ['./comparison.component.css']
 })
 export class ComparisonComponent implements OnInit {
+  name;
+  age;
+
 
   templateExample = `
 <form #f="ngForm" (ngSubmit)="submit(f)">
