@@ -1,36 +1,25 @@
 <md-grid-list cols="2" rowHeight="2:1">
-  <md-grid-tile>
+  <md-grid-tile (click)="router.navigateByUrl('/components/intro')" mdTooltip="Components" mdTooltipPosition="left">
 
-    <a routerLink="/components/intro">
-      <i class="material-icons">extension</i>
-      Components
-    </a>
+    <i class="material-icons">extension</i>
 
   </md-grid-tile>
-  <md-grid-tile>
+  <md-grid-tile
+    (click)="router.navigateByUrl('/reactive-forms/comparison-with-template-forms')"
+    mdTooltip="Reactive Forms"
+    mdTooltipPosition="right">
 
-    <a routerLink="/reactive-forms/comparison-with-template-forms">
-      <i class="material-icons">dashboard</i>
-      Reactive Forms
-    </a>
-
-  </md-grid-tile>
-  <md-grid-tile>
-
-
-    <a routerLink="/routing/configuration">
-      <i class="material-icons">repeat</i>
-      Router
-    </a>
+    <i class="material-icons">dashboard</i>
 
   </md-grid-tile>
-  <md-grid-tile>
+  <md-grid-tile (click)="router.navigateByUrl('/routing/configuration')" mdTooltip="Router" mdTooltipPosition="left">
 
-    <a routerLink="/tooling/ng-cli">
-      <i class="material-icons">build</i>
-      Tooling
-    </a>
+    <i class="material-icons">repeat</i>
 
+  </md-grid-tile>
+  <md-grid-tile (click)="router.navigateByUrl('/tooling/ng-cli')" mdTooltip="Tooling" mdTooltipPosition="right">
+
+    <i class="material-icons">build</i>
 
   </md-grid-tile>
 </md-grid-list>

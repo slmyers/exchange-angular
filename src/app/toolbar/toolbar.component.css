@@ -1,3 +1,7 @@
+md-toolbar {
+  background-color: whitesmoke;
+}
+
 .example-spacer {
   flex: 1 1 auto;
 }

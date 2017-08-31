@@ -10,7 +10,8 @@ import {
   MdToolbarModule, MdGridListModule,
   MdSelectModule, MdAutocompleteModule,
   MdInputModule, MdListModule,
-  MdDialogModule, MdButtonModule } from '@angular/material';
+  MdDialogModule, MdButtonModule,
+  MdTooltipModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { GridListOverviewComponent } from './grid-list-overview/grid-list-overview.component';
 import { ComponentsOverviewComponent } from './components-overview/components-overview.component';
@@ -31,6 +32,7 @@ import { SharedModule } from './shared/shared.module';
 import { ToolingOverviewComponent } from './tooling-overview/tooling-overview.component';
 import { NgCliComponent } from './tooling-overview/ng-cli/ng-cli.component';
 import { AngularLanguageServicesComponent } from './tooling-overview/angular-language-services/angular-language-services.component';
+import { LanguageServicesComponent } from './tooling-overview/language-services/language-services.component';
 
 
 const appRoutes: Routes = [
@@ -82,7 +84,8 @@ const appRoutes: Routes = [
     path: 'tooling',
     component: ToolingOverviewComponent,
     children: [
-      { path: 'ng-cli', component: NgCliComponent }
+      { path: 'ng-cli', component: NgCliComponent },
+      { path: 'language-services', component: LanguageServicesComponent }
     ]
   }
 ];
@@ -108,6 +111,7 @@ const appRoutes: Routes = [
     ToolingOverviewComponent,
     NgCliComponent,
     AngularLanguageServicesComponent,
+    LanguageServicesComponent,
   ],
   imports: [
     BrowserModule,
@@ -120,6 +124,7 @@ const appRoutes: Routes = [
     MdListModule,
     MdDialogModule,
     MdButtonModule,
+    MdTooltipModule,
     RouterModule.forRoot(
       appRoutes,
       { enableTracing: true }

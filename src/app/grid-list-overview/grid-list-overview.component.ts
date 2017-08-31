@@ -1,15 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-grid-list-overview',
   templateUrl: './grid-list-overview.component.html',
   styleUrls: ['./grid-list-overview.component.css']
 })
-export class GridListOverviewComponent implements OnInit {
+export class GridListOverviewComponent {
 
-  constructor() { }
-
-  ngOnInit() {
-  }
+  constructor(public router: Router) { }
 
 }

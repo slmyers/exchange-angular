@@ -41,7 +41,7 @@
     </section>
     <section class="bullet-points">
       <div> Async validation ran: {{asyncValidationRun}}</div>
-      <form class="reactive-auto-complete" [ngStyle]="{'border': myForm.valid ? 'blue solid 1px' : 'red solid 1px'}"  novalidate (ngSubmit)="submit(myForm)" [formGroup]="myForm">
+      <form class="reactive-auto-complete" [ngStyle]="{'border': myForm.valid ? 'green dashed 5px' : 'red solid 5px'}"  novalidate (ngSubmit)="submit(myForm)" [formGroup]="myForm">
         <span> <input placeholder="name" formControlName="name"/> </span>
         <span> <input placeholder="age" formControlName="age"/> </span>
         <button type="submit" [disabled]="!myForm.valid">Submit</button>

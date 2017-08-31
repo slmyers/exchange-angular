@@ -1,21 +1,19 @@
 md-grid-list {
-  width: 80vw;
-  margin: 0 auto;
-  min-height: 75vh;
-  margin-top: 5vh;
+  width: 75vw;
+  margin: 1vh auto;
+  cursor: pointer;
 }
 
 md-grid-tile {
-  background-color: rgb(245, 245, 245);
+  background-color: whitesmoke;
   border: solid lightgrey 3px;
 }
 
 md-grid-tile:hover {
-  background-color: #efb474;
+  background-color: lightgreen;
 }
 
 .material-icons {
   font-size: 96px;
-  color: black;
-  cursor: pointer;
+  color: darkslategrey;
 }

@@ -1,15 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-arrow-navigation',
   template: '<span><ng-content></ng-content></span>',
-  styles: ['']
+  styles: []
 })
-export class ArrowNavigationComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit() {
-  }
-
-}
+export class ArrowNavigationComponent { }

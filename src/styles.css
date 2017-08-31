@@ -1,3 +1,74 @@
 /* You can add global styles to this file, and also import other style files */
 /* @import '~@angular/material/prebuilt-themes/deeppurple-amber.css'; */
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+main {
+  width: 95vw;
+  height: auto;
+  overflow-x: hidden;
+  overflow-y: auto;
+  background-color: transparent;
+  display: flex;
+  margin: 5rem auto 2rem auto;
+  position: relative;
+}
+
+section.content {
+  width: 80%;
+  border-radius: 4px;
+  margin: 0 auto;
+}
+
+app-arrow-navigation {
+  position: absolute;
+}
+
+app-arrow-navigation#right {
+  right: 1em;
+  top: 40%;
+  position: fixed;
+}
+
+app-arrow-navigation#left {
+  left: 1em;
+  top: 40%;
+  position: fixed;
+}
+
+section.code-block {
+  width: 75%;
+  margin: 1em auto;
+}
+
+section.bullet-points {
+  width: 70vw;
+  margin-top: 0.2em;
+}
+
+section > app-hello-world {
+  margin: 100% 0;
+}
+
+li {
+  line-height: 180%;
+  font-size: 180%;
+  margin: 1em auto;
+}
+
+i.material-icons {
+  font-size: 48px;
+  color: darkorange;
+  cursor: pointer;
+}
+
+hr {
+  margin: 6em 0;
+}
+
+body {
+  background-color: whitesmoke;
+}
+
+ul {
+  list-style: circle outside none;
+}

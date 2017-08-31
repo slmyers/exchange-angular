@@ -29,7 +29,8 @@ export class AppComponent implements OnInit {
       'lazy-load'
     ],
     'tooling': [
-      'ng-cli'
+      'ng-cli',
+      'language-services'
     ]
   };
 
