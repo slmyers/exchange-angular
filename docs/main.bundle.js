@@ -46,7 +46,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "\n<app-toolbar></app-toolbar>\n\n<div class=\"container\">\n  <router-outlet></router-outlet>\n</div>\n\n\n"
+module.exports = "\n<app-toolbar></app-toolbar>\n<router-outlet></router-outlet>\n\n\n\n"
 
 /***/ }),
 
@@ -178,8 +178,8 @@ var _a;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__shared_shared_module__ = __webpack_require__("../../../../../src/app/shared/shared.module.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__tooling_overview_tooling_overview_component__ = __webpack_require__("../../../../../src/app/tooling-overview/tooling-overview.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__tooling_overview_ng_cli_ng_cli_component__ = __webpack_require__("../../../../../src/app/tooling-overview/ng-cli/ng-cli.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__tooling_overview_angular_language_services_angular_language_services_component__ = __webpack_require__("../../../../../src/app/tooling-overview/angular-language-services/angular-language-services.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__tooling_overview_language_services_language_services_component__ = __webpack_require__("../../../../../src/app/tooling-overview/language-services/language-services.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__tooling_overview_language_services_language_services_component__ = __webpack_require__("../../../../../src/app/tooling-overview/language-services/language-services.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__tooling_overview_language_services_example_gif_example_gif_component__ = __webpack_require__("../../../../../src/app/tooling-overview/language-services/example-gif/example-gif.component.ts");
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -267,7 +267,7 @@ var appRoutes = [
         component: __WEBPACK_IMPORTED_MODULE_26__tooling_overview_tooling_overview_component__["a" /* ToolingOverviewComponent */],
         children: [
             { path: 'ng-cli', component: __WEBPACK_IMPORTED_MODULE_27__tooling_overview_ng_cli_ng_cli_component__["a" /* NgCliComponent */] },
-            { path: 'language-services', component: __WEBPACK_IMPORTED_MODULE_29__tooling_overview_language_services_language_services_component__["a" /* LanguageServicesComponent */] }
+            { path: 'language-services', component: __WEBPACK_IMPORTED_MODULE_28__tooling_overview_language_services_language_services_component__["a" /* LanguageServicesComponent */] }
         ]
     }
 ];
@@ -297,8 +297,9 @@ AppModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_24__router_overview_auxiliary_routes_my_modal_my_modal_component__["b" /* MyModalDialog */],
             __WEBPACK_IMPORTED_MODULE_26__tooling_overview_tooling_overview_component__["a" /* ToolingOverviewComponent */],
             __WEBPACK_IMPORTED_MODULE_27__tooling_overview_ng_cli_ng_cli_component__["a" /* NgCliComponent */],
-            __WEBPACK_IMPORTED_MODULE_28__tooling_overview_angular_language_services_angular_language_services_component__["a" /* AngularLanguageServicesComponent */],
-            __WEBPACK_IMPORTED_MODULE_29__tooling_overview_language_services_language_services_component__["a" /* LanguageServicesComponent */],
+            __WEBPACK_IMPORTED_MODULE_28__tooling_overview_language_services_language_services_component__["a" /* LanguageServicesComponent */],
+            __WEBPACK_IMPORTED_MODULE_29__tooling_overview_language_services_example_gif_example_gif_component__["a" /* ExampleGifComponent */],
+            __WEBPACK_IMPORTED_MODULE_29__tooling_overview_language_services_example_gif_example_gif_component__["b" /* AlsGifComponent */]
         ],
         imports: [
             __WEBPACK_IMPORTED_MODULE_2__angular_platform_browser__["a" /* BrowserModule */],
@@ -318,7 +319,7 @@ AppModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_25__shared_shared_module__["a" /* SharedModule */]
         ],
         providers: [__WEBPACK_IMPORTED_MODULE_19__reactive_forms_overview_reactive_example_form_service_service__["a" /* FormServiceService */], __WEBPACK_IMPORTED_MODULE_20__reactive_forms_overview_reactive_example_fake_api_service__["a" /* FakeApiService */]],
-        entryComponents: [__WEBPACK_IMPORTED_MODULE_24__router_overview_auxiliary_routes_my_modal_my_modal_component__["b" /* MyModalDialog */]],
+        entryComponents: [__WEBPACK_IMPORTED_MODULE_24__router_overview_auxiliary_routes_my_modal_my_modal_component__["b" /* MyModalDialog */], __WEBPACK_IMPORTED_MODULE_29__tooling_overview_language_services_example_gif_example_gif_component__["b" /* AlsGifComponent */]],
         bootstrap: [__WEBPACK_IMPORTED_MODULE_6__app_component__["a" /* AppComponent */]]
     })
 ], AppModule);
@@ -348,7 +349,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components-overview/change-detection/change-detection.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<main>\n  <section class=\"content\">\n    <app-arrow-navigation id=\"right\"><a routerLink=\"\"><i class=\"material-icons\">keyboard_arrow_right</i></a></app-arrow-navigation>\n    <app-arrow-navigation id=\"left\"><a routerLink=\"/components/templates\"><i class=\"material-icons\">keyboard_arrow_left</i></a></app-arrow-navigation>\n\n    <section class=\"bullet-points\">\n      <ul title=\"overview points\">\n\n        <li>\n          There is no more <code>$digest cycle</code>. *hoo-rah I hear the crowd cheer*\n        </li>\n\n        <li>\n          Angular runs in a <code>Zone</code>. This is an area of the <code>DOM</code> in which async methods are intercepted and managed by <code>Zone.js</code>.\n        </li>\n\n        <li>\n          This means that change detection is ran only when asynchronous code could have altered our data.\n        </li>\n      </ul>\n    </section>\n    <hr/>\n\n    <section class=\"code-block\">\n      <prism-block [code]=\"onPush\" language=\"typescript\"></prism-block>\n    </section>\n    <section class=\"bullet-points\">\n      <ul title=\"overview points\">\n\n        <li>\n          One can set the component meta-data such that change detection for this component is only ran <code>OnPush</code>\n        </li>\n\n        <li>\n          This will also effect components further down the component tree.\n        </li>\n\n      </ul>\n    </section>\n    <hr/>\n\n  </section>\n</main>\n"
+module.exports = "<main>\n  <section class=\"content\">\n    <app-arrow-navigation id=\"right\"><a routerLink=\"\"><i class=\"material-icons\">keyboard_arrow_right</i></a></app-arrow-navigation>\n    <app-arrow-navigation id=\"left\"><a routerLink=\"/components/templates\"><i class=\"material-icons\">keyboard_arrow_left</i></a></app-arrow-navigation>\n\n    <section class=\"bullet-points\">\n      <ul title=\"overview points\">\n\n        <li>\n          There is no more <code>$digest cycle</code>. *hoo-rah I hear the crowd cheer*\n        </li>\n\n        <li>\n          Angular runs in a <code>Zone</code>. This is an area of the <code>DOM</code> in which async methods are intercepted and managed by <code>Zone.js</code>.\n        </li>\n\n        <li>\n          This means that change detection is ran only when asynchronous code could have altered our data.\n        </li>\n      </ul>\n    </section>\n\n    <section class=\"code-block\">\n      <prism-block [code]=\"onPush\" language=\"typescript\"></prism-block>\n    </section>\n    <section class=\"bullet-points\">\n      <ul title=\"overview points\">\n\n        <li>\n          One can set the component meta-data such that change detection for this component is only ran <code>OnPush</code>\n        </li>\n\n        <li>\n          This will also effect components further down the component tree.\n        </li>\n\n      </ul>\n    </section>\n\n  </section>\n</main>\n"
 
 /***/ }),
 
@@ -471,7 +472,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components-overview/intro/intro.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<main>\n  <section class=\"content\">\n    <app-arrow-navigation id=\"right\"><a routerLink=\"/components/templates\"><i class=\"material-icons\">keyboard_arrow_right</i></a></app-arrow-navigation>\n    <app-arrow-navigation id=\"left\"><a routerLink=\"\"><i class=\"material-icons\">keyboard_arrow_left</i></a></app-arrow-navigation>\n    <section class=\"code-block\">\n      <prism-block [code]=\"typescriptCode\" language=\"typescript\"></prism-block>\n      <app-hello-world></app-hello-world>\n      <span style=\"margin-left: 2em;\"> Hello world</span>\n    </section>\n    <hr/>\n\n    <section class=\"bullet-points\">\n      <ul title=\"overview points\">\n\n        <li>\n          <code> @ </code> stuff is a <a href=\"https://www.typescriptlang.org/docs/handbook/decorators.html\" target=\"_blank\"> decorator </a>\n          This applies the meta-data to the component. There are many\n          <a href=\"https://angular.io/api/core/Component#metadata-overview\" target=\"_blank\">optional values.</a>\n        </li>\n\n        <li>\n          Interpolated values do not require namspacing. Compare with Angular 1.x\n          <a href=\"https://toddmotto.com/digging-into-angulars-controller-as-syntax/#controllers-as-classes\" target=\"_blank\">\n            Controller As syntax\n          </a>\n        </li>\n\n        <li>\n          Angular has an optional\n          <a href=\"https://angular.io/api/core/Component#encapsulation\" target=\"_blank\">view encapulation</a>\n          that by default compiles the styles to a css shim. This means that by default styles do not leak outside the\n          component.\n        </li>\n\n      </ul>\n    </section>\n\n  </section>\n</main>\n"
+module.exports = "<main>\n  <section class=\"content\">\n    <app-arrow-navigation id=\"right\"><a routerLink=\"/components/templates\"><i class=\"material-icons\">keyboard_arrow_right</i></a></app-arrow-navigation>\n    <app-arrow-navigation id=\"left\"><a routerLink=\"\"><i class=\"material-icons\">keyboard_arrow_left</i></a></app-arrow-navigation>\n    <section class=\"code-block\">\n      <prism-block [code]=\"typescriptCode\" language=\"typescript\"></prism-block>\n      <app-hello-world></app-hello-world>\n      <span style=\"margin-left: 2em;\"> Hello world</span>\n    </section>\n\n\n    <section class=\"bullet-points\">\n      <ul title=\"overview points\">\n\n        <li>\n          <code> @ </code> stuff is a <a href=\"https://www.typescriptlang.org/docs/handbook/decorators.html\" target=\"_blank\"> decorator </a>\n          This applies the meta-data to the component. There are many\n          <a href=\"https://angular.io/api/core/Component#metadata-overview\" target=\"_blank\">optional values.</a>\n        </li>\n\n        <li>\n          Interpolated values do not require namspacing. Compare with Angular 1.x\n          <a href=\"https://toddmotto.com/digging-into-angulars-controller-as-syntax/#controllers-as-classes\" target=\"_blank\">\n            Controller As syntax\n          </a>\n        </li>\n\n        <li>\n          Angular has an optional\n          <a href=\"https://angular.io/api/core/Component#encapsulation\" target=\"_blank\">view encapulation</a>\n          that by default compiles the styles to a css shim. This means that by default styles do not leak outside the\n          component.\n        </li>\n\n      </ul>\n    </section>\n\n  </section>\n</main>\n"
 
 /***/ }),
 
@@ -533,7 +534,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components-overview/templates/templates.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<main>\n  <section class=\"content\">\n    <app-arrow-navigation id=\"right\"><a routerLink=\"/components/change-detection\"><i class=\"material-icons\">keyboard_arrow_right</i></a></app-arrow-navigation>\n    <app-arrow-navigation id=\"left\"><a routerLink=\"/components/intro\"><i class=\"material-icons\">keyboard_arrow_left</i></a></app-arrow-navigation>\n    <section class=\"code-block\">\n      <prism-block [code]=\"templateBindings\" language=\"html\"></prism-block>\n    </section>\n    <section class=\"code-block\">\n      <prism-block [code]=\"componentBindings\" language=\"typescript\"></prism-block>\n    </section>\n    <section class=\"bullet-points\">\n      <ul title=\"overview points\">\n        <li>\n          attributes wrapped in <code> [] </code> denote property bindings while those wrapped in <code> () </code>  represent event bindings.\n        </li>\n      </ul>\n    </section>\n    <hr/>\n\n    <section class=\"code-block\">\n      <prism-block [code]=\"directives\" language=\"html\"></prism-block>\n    </section>\n    <section class=\"bullet-points\">\n      <ul title=\"overview points\">\n        <li>\n          directives marked with <code> * </code> are called structural directives and will make changes to the <code> DOM </code>\n        </li>\n\n        <li>\n          directives without this prefix are called attribute directives and are used to change the appearance or behavior of a  <code> DOM </code>  element.\n        </li>\n\n      </ul>\n    </section>\n    <hr/>\n\n    <section class=\"code-block\">\n      <prism-block [code]=\"pipes\" language=\"html\"></prism-block>\n    </section>\n    <section class=\"bullet-points\">\n      <ul title=\"overview points\">\n\n        <li>\n          The <code>|</code> operator feeds input through a pipe. Analogous to AngularJS filter.\n        </li>\n\n        <li>\n          The <code> async pipe </code> will resolve a promise or manage an Observable such that the value is available\n          in the template.\n        </li>\n\n        <li>\n          <code> ng-template </code>is a wrapper around native <code>DOM</code> template. The <code># attribute</code>  is akin to an <code>id</code>.\n        </li>\n\n      </ul>\n    </section>\n    <hr/>\n\n\n  </section>\n</main>\n"
+module.exports = "<main>\n  <section class=\"content\">\n    <app-arrow-navigation id=\"right\"><a routerLink=\"/components/change-detection\"><i class=\"material-icons\">keyboard_arrow_right</i></a></app-arrow-navigation>\n    <app-arrow-navigation id=\"left\"><a routerLink=\"/components/intro\"><i class=\"material-icons\">keyboard_arrow_left</i></a></app-arrow-navigation>\n    <section class=\"code-block\">\n      <prism-block [code]=\"templateBindings\" language=\"html\"></prism-block>\n    </section>\n    <section class=\"code-block\">\n      <prism-block [code]=\"componentBindings\" language=\"typescript\"></prism-block>\n    </section>\n    <section class=\"bullet-points\">\n      <ul title=\"overview points\">\n        <li>\n          attributes wrapped in <code> [] </code> denote property bindings while those wrapped in <code> () </code>  represent event bindings.\n        </li>\n      </ul>\n    </section>\n\n\n    <section class=\"code-block\">\n      <prism-block [code]=\"directives\" language=\"html\"></prism-block>\n    </section>\n    <section class=\"bullet-points\">\n      <ul title=\"overview points\">\n        <li>\n          directives marked with <code> * </code> are called structural directives and will make changes to the <code> DOM </code>\n        </li>\n\n        <li>\n          directives without this prefix are called attribute directives and are used to change the appearance or behavior of a  <code> DOM </code>  element.\n        </li>\n\n      </ul>\n    </section>\n\n\n    <section class=\"code-block\">\n      <prism-block [code]=\"pipes\" language=\"html\"></prism-block>\n    </section>\n    <section class=\"bullet-points\">\n      <ul title=\"overview points\">\n\n        <li>\n          The <code>|</code> operator feeds input through a pipe. Analogous to AngularJS filter.\n        </li>\n\n        <li>\n          The <code> async pipe </code> will resolve a promise or manage an Observable such that the value is available\n          in the template.\n        </li>\n\n        <li>\n          <code> ng-template </code>is a wrapper around native <code>DOM</code> template. The <code># attribute</code>  is akin to an <code>id</code>.\n        </li>\n\n      </ul>\n    </section>\n\n\n  </section>\n</main>\n"
 
 /***/ }),
 
@@ -661,7 +662,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/reactive-forms-overview/comparison/comparison.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<main>\n  <section class=\"content\">\n    <app-arrow-navigation id=\"right\"><a routerLink=\"/reactive-forms/example\"><i class=\"material-icons\">keyboard_arrow_right</i></a></app-arrow-navigation>\n    <app-arrow-navigation id=\"left\"><a routerLink=\"\"><i class=\"material-icons\">keyboard_arrow_left</i></a></app-arrow-navigation>\n\n    <h2 style=\"margin-left: 40%; margin-bottom: 1.5rem;\">Template Driven Form</h2>\n\n    <section class=\"code-block\">\n      <prism-block [code]=\"templateExample\" language=\"html\"></prism-block>\n    </section>\n    <section class=\"code-block\">\n      <prism-block [code]=\"templateComponent\" language=\"typescript\"></prism-block>\n    </section>\n    <section class=\"bullet-points\">\n      <form #f=\"ngForm\" (ngSubmit)=\"submit(f)\">\n        <span> <input placeholder=\"name\" [(ngModel)]=\"name\" name=\"name\" required /> </span>\n        <span> <input placeholder=\"age\" [(ngModel)]=\"age\" name=\"age\" pattern=\"[0-9]+\" required /> </span>\n        <button type=\"submit\" [disabled]=\"!f.valid\">Submit</button>\n      </form>\n    </section>\n\n    <section class=\"bullet-points\">\n      <ul title=\"overview points\">\n        <li>\n          This is a `template driven form`. Very similar to an AngularJS form.\n        </li>\n\n        <li>\n          How to get a reference to the form variable? How to react to the form changes before submit?\n        </li>\n      </ul>\n    </section>\n    <hr/>\n\n    <h2 style=\"margin-left: 40%; margin-bottom: 1.5rem;\">Reactive Form</h2>\n    <section class=\"code-block\">\n      <prism-block [code]=\"reactiveExample\" language=\"html\"></prism-block>\n    </section>\n    <section class=\"code-block\">\n      <prism-block [code]=\"reactiveComponent\" language=\"typescript\"></prism-block>\n    </section>\n    <section class=\"bullet-points\">\n      <div> Async validation ran: {{asyncValidationRun}}</div>\n      <form class=\"reactive-auto-complete\" [ngStyle]=\"{'border': myForm.valid ? 'green dashed 5px' : 'red solid 5px'}\"  novalidate (ngSubmit)=\"submit(myForm)\" [formGroup]=\"myForm\">\n        <span> <input placeholder=\"name\" formControlName=\"name\"/> </span>\n        <span> <input placeholder=\"age\" formControlName=\"age\"/> </span>\n        <button type=\"submit\" [disabled]=\"!myForm.valid\">Submit</button>\n      </form>\n      <ul title=\"overview points\">\n\n        <li>\n          Data structure so you can leverage services and pass `FormGroup` as a property.\n        </li>\n\n        <li>\n          `FormGroup#valueChanges` exposes an `Observable`.\n        </li>\n\n        <li>\n          Allows for easily modifying validators and Async validation -- Async validator will only run after the sync validators are valid.\n        </li>\n\n      </ul>\n    </section>\n    <hr/>\n  </section>\n</main>\n"
+module.exports = "<main>\n  <section class=\"content\">\n    <app-arrow-navigation id=\"right\"><a routerLink=\"/reactive-forms/example\"><i class=\"material-icons\">keyboard_arrow_right</i></a></app-arrow-navigation>\n    <app-arrow-navigation id=\"left\"><a routerLink=\"\"><i class=\"material-icons\">keyboard_arrow_left</i></a></app-arrow-navigation>\n\n    <h2 style=\"margin-left: 40%; margin-bottom: 1.5rem;\">Template Driven Form</h2>\n\n    <section class=\"code-block\">\n      <prism-block [code]=\"templateExample\" language=\"html\"></prism-block>\n    </section>\n    <section class=\"code-block\">\n      <prism-block [code]=\"templateComponent\" language=\"typescript\"></prism-block>\n    </section>\n\n    <section class=\"bullet-points\">\n      <form #f=\"ngForm\" (ngSubmit)=\"submit(f)\">\n        <span> <input placeholder=\"name\" [(ngModel)]=\"name\" name=\"name\" required /> </span>\n        <span> <input placeholder=\"age\" [(ngModel)]=\"age\" name=\"age\" pattern=\"[0-9]+\" required /> </span>\n        <button type=\"submit\" [disabled]=\"!f.valid\">Submit</button>\n      </form>\n      <ul title=\"overview points\">\n        <li>\n          This is a `template driven form`. Very similar to an AngularJS form.\n        </li>\n\n        <li>\n          How to get a reference to the form variable? How to react to the form changes before submit?\n        </li>\n      </ul>\n    </section>\n\n    <h2 style=\"margin-left: 40%; margin-bottom: 1.5rem;\">Reactive Form</h2>\n    <section class=\"code-block\">\n      <prism-block [code]=\"reactiveExample\" language=\"html\"></prism-block>\n    </section>\n    <section class=\"code-block\">\n      <prism-block [code]=\"reactiveComponent\" language=\"typescript\"></prism-block>\n    </section>\n    <section class=\"bullet-points\">\n      <div> Async validation ran: {{asyncValidationRun}}</div>\n      <form class=\"reactive-auto-complete\" [ngStyle]=\"{'border': myForm.valid ? 'green dashed 5px' : 'red solid 5px'}\"  novalidate (ngSubmit)=\"submit(myForm)\" [formGroup]=\"myForm\">\n        <span> <input placeholder=\"name\" formControlName=\"name\"/> </span>\n        <span> <input placeholder=\"age\" formControlName=\"age\"/> </span>\n        <button type=\"submit\" [disabled]=\"!myForm.valid\">Submit</button>\n      </form>\n      <ul title=\"overview points\">\n\n        <li>\n          Data structure so you can leverage services and pass `FormGroup` as a property.\n        </li>\n\n        <li>\n          `FormGroup#valueChanges` exposes an `Observable`.\n        </li>\n\n        <li>\n          Allows for easily modifying validators and Async validation -- Async validator will only run after the sync validators are valid.\n        </li>\n\n      </ul>\n    </section>\n  </section>\n</main>\n"
 
 /***/ }),
 
@@ -913,7 +914,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/reactive-forms-overview/reactive-example/reactive-example.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<main>\n  <section class=\"content\">\n    <app-arrow-navigation id=\"right\"><a routerLink=\"\"><i class=\"material-icons\">keyboard_arrow_right</i></a></app-arrow-navigation>\n    <app-arrow-navigation id=\"left\"><a routerLink=\"/reactive-forms/comparison-with-template-forms\"><i class=\"material-icons\">keyboard_arrow_left</i></a></app-arrow-navigation>\n\n    <h2 style=\"margin-left: 40%; margin-bottom: 1.5rem;\">Contrived Reactive Example</h2>\n\n    <section class=\"example\" [formGroup]=\"form\">\n\n      <md-select formControlName=\"color\" placeholder=\"Select Color\" [style.border-left-color]=\"form.value.color\">\n        <md-option *ngFor=\"let option of options\" [value]=\"option\">\n          <span [style.border-left-color]=\"option\"> {{ option }}</span>\n        </md-option>\n      </md-select>\n\n      <md-input-container>\n        <input type=\"text\" placeholder=\"brand\" mdInput formControlName=\"brand\" [mdAutocomplete]=\"auto\">\n      </md-input-container>\n\n      <md-autocomplete #auto=\"mdAutocomplete\">\n        <md-option *ngFor=\"let option of brands | async\" [value]=\"option\">\n          {{ option }}\n        </md-option>\n      </md-autocomplete>\n\n    </section>\n\n\n\n\n    <section class=\"centered\">\n      <md-divider></md-divider>\n\n      <md-list *ngIf=\"!form.errors; else noContent\">\n        <md-list-item *ngFor=\"let item of content$ | async\">\n          <h3 md-line> {{item.name}} </h3>\n          <p md-line> {{item.color}} </p>\n          <p md-line class=\"demo-2\"> {{item.manufacturer}} </p>\n        </md-list-item>\n      </md-list>\n\n      <ng-template #noContent>No Content</ng-template>\n    </section>\n\n    <hr style=\"margin: 4em 0;\">\n\n    <section class=\"code-block\">\n      <prism-block [code]=\"formServiceDescription\" language=\"typescript\"></prism-block>\n    </section>\n\n    <hr style=\"margin: 4em 0;\">\n\n    <section class=\"code-block\">\n      <prism-block [code]=\"componentTemplateDescription\" language=\"html\"></prism-block>\n    </section>\n\n    <hr style=\"margin: 4em 0;\">\n\n    <section class=\"code-block\">\n      <prism-block [code]=\"componentClassDescription\" language=\"typescript\"></prism-block>\n    </section>\n\n\n  </section>\n</main>\n"
+module.exports = "<main>\n  <section class=\"content\">\n    <app-arrow-navigation id=\"right\"><a routerLink=\"\"><i class=\"material-icons\">keyboard_arrow_right</i></a></app-arrow-navigation>\n    <app-arrow-navigation id=\"left\"><a routerLink=\"/reactive-forms/comparison-with-template-forms\"><i class=\"material-icons\">keyboard_arrow_left</i></a></app-arrow-navigation>\n\n    <h2 style=\"margin-left: 40%; margin-bottom: 1.5rem;\">Contrived Reactive Example</h2>\n    <section class=\"bullet-points\" [style.padding]=\"'2em 0'\">\n      <section class=\"example\" [formGroup]=\"form\">\n\n        <md-select formControlName=\"color\" placeholder=\"Select Color\" [style.border-left-color]=\"form.value.color\">\n          <md-option *ngFor=\"let option of options\" [value]=\"option\">\n            <span [style.border-left-color]=\"option\"> {{ option }}</span>\n          </md-option>\n        </md-select>\n\n        <md-input-container>\n          <input type=\"text\" placeholder=\"brand\" mdInput formControlName=\"brand\" [mdAutocomplete]=\"auto\">\n        </md-input-container>\n\n        <md-autocomplete #auto=\"mdAutocomplete\">\n          <md-option *ngFor=\"let option of brands | async\" [value]=\"option\">\n            {{ option }}\n          </md-option>\n        </md-autocomplete>\n\n      </section>\n\n\n\n\n      <section class=\"centered\">\n        <md-divider></md-divider>\n\n        <md-list *ngIf=\"!form.errors; else noContent\">\n          <md-list-item *ngFor=\"let item of content$ | async\">\n            <h3 md-line> {{item.name}} </h3>\n            <p md-line> {{item.color}} </p>\n            <p md-line class=\"demo-2\"> {{item.manufacturer}} </p>\n          </md-list-item>\n        </md-list>\n\n        <ng-template #noContent>No Content</ng-template>\n      </section>\n\n    </section>\n\n\n    <section class=\"code-block\">\n      <prism-block [code]=\"formServiceDescription\" language=\"typescript\"></prism-block>\n    </section>\n\n\n    <section class=\"code-block\">\n      <prism-block [code]=\"componentTemplateDescription\" language=\"html\"></prism-block>\n    </section>\n\n\n    <section class=\"code-block\">\n      <prism-block [code]=\"componentClassDescription\" language=\"typescript\"></prism-block>\n    </section>\n\n\n  </section>\n</main>\n"
 
 /***/ }),
 
@@ -1043,7 +1044,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/router-overview/auxiliary-routes/auxiliary-routes.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<main>\n  <section class=\"content\">\n    <app-arrow-navigation id=\"right\"><a routerLink=\"/routing/lazy-load\"><i class=\"material-icons\">keyboard_arrow_right</i></a></app-arrow-navigation>\n    <app-arrow-navigation id=\"left\"><a routerLink=\"/routing/configuration/\"><i class=\"material-icons\">keyboard_arrow_left</i></a></app-arrow-navigation>\n    <section class=\"code-block\">\n      <prism-block [code]=\"auxRoute\" language=\"typescript\"></prism-block>\n    </section>\n    <section class=\"code-block\">\n      <prism-block [code]=\"auxMarkup\" language=\"html\"></prism-block>\n    </section>\n    <hr/>\n    <router-outlet name=\"modal\"></router-outlet>\n    <a [routerLink]=\"[ {outlets: { modal: 'modal' } } ]\"><button md-button>Open Modal</button></a>\n\n  </section>\n</main>\n"
+module.exports = "<main>\n  <section class=\"content\">\n    <app-arrow-navigation id=\"right\"><a routerLink=\"/routing/lazy-load\"><i class=\"material-icons\">keyboard_arrow_right</i></a></app-arrow-navigation>\n    <app-arrow-navigation id=\"left\"><a routerLink=\"/routing/configuration/\"><i class=\"material-icons\">keyboard_arrow_left</i></a></app-arrow-navigation>\n    <section class=\"code-block\">\n      <prism-block [code]=\"auxRoute\" language=\"typescript\"></prism-block>\n    </section>\n    <section class=\"code-block\">\n      <prism-block [code]=\"auxMarkup\" language=\"html\"></prism-block>\n    </section>\n\n    <router-outlet name=\"modal\"></router-outlet>\n    <a [routerLink]=\"[ {outlets: { modal: 'modal' } } ]\"><button md-button>Open Modal</button></a>\n\n  </section>\n</main>\n"
 
 /***/ }),
 
@@ -1139,11 +1140,16 @@ var MyModalComponent = (function () {
     }
     MyModalComponent.prototype.ngOnInit = function () {
         var _this = this;
-        setTimeout(function () { return _this.dialog.open(MyModalDialog); }, 0);
-        this.dialog.afterAllClosed.subscribe(function (_) { return _this.router.navigate(['/routing/auxiliary-routes/', { outlets: { modal: null } }]); });
+        setTimeout(function () { return _this.dialog.open(MyModalDialog); });
+        this.sub = this.dialog.afterAllClosed.subscribe(function (_) {
+            _this.router.navigate(['/routing/auxiliary-routes/', { outlets: { modal: null } }]);
+        });
     };
     MyModalComponent.prototype.ngOnDestroy = function () {
         this.dialog.closeAll();
+        if (!this.sub.closed) {
+            this.sub.unsubscribe();
+        }
     };
     return MyModalComponent;
 }());
@@ -1200,7 +1206,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/router-overview/router-configuration/router-configuration.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<main>\n  <section class=\"content\">\n    <app-arrow-navigation id=\"right\"><a routerLink=\"/routing/auxiliary-routes/\"><i class=\"material-icons\">keyboard_arrow_right</i></a></app-arrow-navigation>\n    <app-arrow-navigation id=\"left\"><a routerLink=\"\"><i class=\"material-icons\">keyboard_arrow_left</i></a></app-arrow-navigation>\n    <h3> Configuration is just an Array of Objects </h3>\n    <section class=\"code-block\">\n      <prism-block [code]=\"routerConfiguration\" language=\"typescript\"></prism-block>\n    </section>\n    Taken from <a href=\"https://angular.io/guide/router#configuration\" target=\"_blank\">here</a>.\n    <hr/>\n\n    <h3> Routes are reactive </h3>\n    <p> what isn't? 'namsayin </p>\n\n    <ul>\n      <li *ngFor=\"let choice of colors\">\n        <a\n          routerLinkActive=\"active-link\"\n          [routerLink]=\"['./']\"\n          [queryParams]=\"{ color: choice.color}\"\n          [routerLinkActiveOptions]=\"{ exact: true }\">{{ choice.color }} </a>\n      </li>\n      <li>\n        <a routerLinkActive=\"active-link\" [routerLink]=\"['./']\" [routerLinkActiveOptions]=\"{ exact: true }\"> none </a>\n      </li>\n    </ul>\n\n\n    <div class=\"color-output\">\n      <div *ngFor=\"let choice of colors\" [ngStyle]=\"{'border-color': (color | async) === choice.color ? choice.color : null }\"> {{ choice.color }}</div>\n    </div>\n\n    <section class=\"bullet-points\">\n      <ul title=\"overview points\" [style.color]=\"color | async\">\n        <li> This color is {{ color | async }} </li>\n      </ul>\n    </section>\n\n    <section class=\"code-block\">\n      <prism-block [code]=\"componentCode\" language=\"typescript\"></prism-block>\n    </section>\n\n    <section class=\"code-block\">\n      <prism-block [code]=\"templateCode\" language=\"html\"></prism-block>\n    </section>\n\n  </section>\n</main>\n"
+module.exports = "<main>\n  <section class=\"content\">\n    <app-arrow-navigation id=\"right\"><a routerLink=\"/routing/auxiliary-routes/\"><i class=\"material-icons\">keyboard_arrow_right</i></a></app-arrow-navigation>\n    <app-arrow-navigation id=\"left\"><a routerLink=\"\"><i class=\"material-icons\">keyboard_arrow_left</i></a></app-arrow-navigation>\n    <h3> Configuration is just an Array of Objects </h3>\n    <section class=\"code-block\">\n      <prism-block [code]=\"routerConfiguration\" language=\"typescript\"></prism-block>\n    </section>\n    Taken from <a href=\"https://angular.io/guide/router#configuration\" target=\"_blank\">here</a>.\n\n\n    <h3> Routes are reactive </h3>\n    <p> what isn't? 'namsayin </p>\n\n    <ul>\n      <li *ngFor=\"let choice of colors\">\n        <a\n          routerLinkActive=\"active-link\"\n          [routerLink]=\"['./']\"\n          [queryParams]=\"{ color: choice.color}\"\n          [routerLinkActiveOptions]=\"{ exact: true }\">{{ choice.color }} </a>\n      </li>\n      <li>\n        <a routerLinkActive=\"active-link\" [routerLink]=\"['./']\" [routerLinkActiveOptions]=\"{ exact: true }\"> none </a>\n      </li>\n    </ul>\n\n\n    <div class=\"color-output\">\n      <div *ngFor=\"let choice of colors\" [ngStyle]=\"{'border-color': (color | async) === choice.color ? choice.color : null }\"> {{ choice.color }}</div>\n    </div>\n\n    <section class=\"bullet-points\">\n      <ul title=\"overview points\" [style.color]=\"color | async\">\n        <li> This color is {{ color | async }} </li>\n      </ul>\n    </section>\n\n    <section class=\"code-block\">\n      <prism-block [code]=\"componentCode\" language=\"typescript\"></prism-block>\n    </section>\n\n    <section class=\"code-block\">\n      <prism-block [code]=\"templateCode\" language=\"html\"></prism-block>\n    </section>\n\n  </section>\n</main>\n"
 
 /***/ }),
 
@@ -1444,7 +1450,7 @@ ToolbarComponent = __decorate([
 
 /***/ }),
 
-/***/ "../../../../../src/app/tooling-overview/angular-language-services/angular-language-services.component.css":
+/***/ "../../../../../src/app/tooling-overview/language-services/example-gif/example-gif.component.css":
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
@@ -1452,7 +1458,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "", ""]);
+exports.push([module.i, ":host {\n  cursor: pointer;\n}\n", ""]);
 
 // exports
 
@@ -1462,19 +1468,21 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ "../../../../../src/app/tooling-overview/angular-language-services/angular-language-services.component.html":
+/***/ "../../../../../src/app/tooling-overview/language-services/example-gif/example-gif.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  angular-language-services works!\n</p>\n"
+module.exports = "<img src =\"/assets/angular-language-service-example.gif\" mdTooltip=\"click to expand\" mdTooltipPosition=\"above\"/>\n"
 
 /***/ }),
 
-/***/ "../../../../../src/app/tooling-overview/angular-language-services/angular-language-services.component.ts":
+/***/ "../../../../../src/app/tooling-overview/language-services/example-gif/example-gif.component.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AngularLanguageServicesComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_material__ = __webpack_require__("../../../material/@angular/material.es5.js");
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ExampleGifComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return AlsGifComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1485,23 +1493,53 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
-var AngularLanguageServicesComponent = (function () {
-    function AngularLanguageServicesComponent() {
-    }
-    AngularLanguageServicesComponent.prototype.ngOnInit = function () {
-    };
-    return AngularLanguageServicesComponent;
-}());
-AngularLanguageServicesComponent = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["D" /* Component */])({
-        selector: 'app-angular-language-services',
-        template: __webpack_require__("../../../../../src/app/tooling-overview/angular-language-services/angular-language-services.component.html"),
-        styles: [__webpack_require__("../../../../../src/app/tooling-overview/angular-language-services/angular-language-services.component.css")]
-    }),
-    __metadata("design:paramtypes", [])
-], AngularLanguageServicesComponent);
 
-//# sourceMappingURL=angular-language-services.component.js.map
+var ExampleGifComponent = (function () {
+    function ExampleGifComponent(dialog) {
+        this.dialog = dialog;
+        this.src = 'assets/angular-language-service-example.gif';
+    }
+    ExampleGifComponent.prototype.show = function () {
+        this.dialog.open(AlsGifComponent, {
+            width: '90%',
+        });
+    };
+    ExampleGifComponent.prototype.ngOnInit = function () {
+    };
+    return ExampleGifComponent;
+}());
+__decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_7" /* HostListener */])('click'),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", void 0)
+], ExampleGifComponent.prototype, "show", null);
+ExampleGifComponent = __decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["D" /* Component */])({
+        selector: 'app-example-gif',
+        template: __webpack_require__("../../../../../src/app/tooling-overview/language-services/example-gif/example-gif.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/tooling-overview/language-services/example-gif/example-gif.component.css")]
+    }),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_material__["j" /* MdDialog */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_material__["j" /* MdDialog */]) === "function" && _a || Object])
+], ExampleGifComponent);
+
+var AlsGifComponent = (function () {
+    function AlsGifComponent() {
+    }
+    return AlsGifComponent;
+}());
+AlsGifComponent = __decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["D" /* Component */])({
+        selector: 'app-als-gif',
+        template: "<img src =\"/assets/angular-language-service-example.gif\" />",
+        styles: [
+            "\n      img {\n        width: 100%;\n      }\n    "
+        ]
+    })
+], AlsGifComponent);
+
+var _a;
+//# sourceMappingURL=example-gif.component.js.map
 
 /***/ }),
 
@@ -1513,7 +1551,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "", ""]);
+exports.push([module.i, "app-example-gif {\n  margin-left: 18%;\n}\n", ""]);
 
 // exports
 
@@ -1526,7 +1564,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/tooling-overview/language-services/language-services.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  language-services works!\n</p>\n"
+module.exports = "<main>\n  <section class=\"content\">\n    <app-arrow-navigation id=\"right\"><a routerLink=\"/\"><i class=\"material-icons\">keyboard_arrow_right</i></a></app-arrow-navigation>\n    <app-arrow-navigation id=\"left\"><a routerLink=\"/tooling/ng-cli\"><i class=\"material-icons\">keyboard_arrow_left</i></a></app-arrow-navigation>\n\n    <!--\n    <img src=\"assets/angular-language-service-example.gif\"/>\n    -->\n\n    <app-example-gif></app-example-gif>\n\n    <section class=\"bullet-points\">\n      <ul title=\"overview points\">\n\n        <li>The <a href=\"https://cli.angular.io/\" target=\"_blank\">Angular CLI</a> is an official Angular package that allows for easily bootstraping an application</li>\n        <li>Abstracts away Webpack and allows for \"app ejection\" -- which is short for give me my config and set up my npm scripts</li>\n        <li>Has support for service workers and server side rendering -- undoubtedly each come with associated headaches.</li>\n        <li>Not ideal for creating consumable libraries. Designed more for application development. Look into\n          <a href=\"https://www.npmjs.com/package/ng-packagr\" target=\"_blank\">ng-packagr</a> for more info.</li>\n      </ul>\n    </section>\n\n  </section>\n</main>\n"
 
 /***/ }),
 
@@ -1535,6 +1573,7 @@ module.exports = "<p>\n  language-services works!\n</p>\n"
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_material__ = __webpack_require__("../../../material/@angular/material.es5.js");
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LanguageServicesComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1546,8 +1585,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
 var LanguageServicesComponent = (function () {
-    function LanguageServicesComponent() {
+    function LanguageServicesComponent(dialog) {
+        this.dialog = dialog;
     }
     LanguageServicesComponent.prototype.ngOnInit = function () {
     };
@@ -1559,9 +1600,10 @@ LanguageServicesComponent = __decorate([
         template: __webpack_require__("../../../../../src/app/tooling-overview/language-services/language-services.component.html"),
         styles: [__webpack_require__("../../../../../src/app/tooling-overview/language-services/language-services.component.css")]
     }),
-    __metadata("design:paramtypes", [])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_material__["j" /* MdDialog */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_material__["j" /* MdDialog */]) === "function" && _a || Object])
 ], LanguageServicesComponent);
 
+var _a;
 //# sourceMappingURL=language-services.component.js.map
 
 /***/ }),
@@ -1587,7 +1629,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/tooling-overview/ng-cli/ng-cli.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<main>\n  <section class=\"content\">\n    <app-arrow-navigation id=\"right\"><a routerLink=\"/\"><i class=\"material-icons\">keyboard_arrow_right</i></a></app-arrow-navigation>\n    <app-arrow-navigation id=\"left\"><a routerLink=\"/\"><i class=\"material-icons\">keyboard_arrow_left</i></a></app-arrow-navigation>\n\n    <img src=\"assets/cli-logo.svg\"/>\n\n    <section class=\"bullet-points\">\n      <ul title=\"overview points\">\n\n        <li>The <a href=\"https://cli.angular.io/\" target=\"_blank\">Angular CLI</a> is an official Angular package that allows for easily bootstraping an application</li>\n        <li>Abstracts away Webpack and allows for \"app ejection\" -- which is short for give me my config and set up my npm scripts</li>\n        <li>Has support for service workers and server side rendering -- undoubtedly each come with associated headaches.</li>\n        <li>Not ideal for creating consumable libraries. Designed more for application development. Look into\n          <a href=\"https://www.npmjs.com/package/ng-packagr\" target=\"_blank\">ng-packagr</a> for more info.</li>\n      </ul>\n    </section>\n    <hr/>\n\n  </section>\n</main>\n"
+module.exports = "<main>\n  <section class=\"content\">\n    <app-arrow-navigation id=\"right\"><a routerLink=\"/tooling/language-services\"><i class=\"material-icons\">keyboard_arrow_right</i></a></app-arrow-navigation>\n    <app-arrow-navigation id=\"left\"><a routerLink=\"/\"><i class=\"material-icons\">keyboard_arrow_left</i></a></app-arrow-navigation>\n\n    <img src=\"assets/cli-logo.svg\"/>\n\n    <section class=\"bullet-points\">\n      <ul title=\"overview points\">\n\n        <li>The <a href=\"https://cli.angular.io/\" target=\"_blank\">Angular CLI</a> is an official Angular package that allows for easily bootstraping an application</li>\n        <li>Abstracts away Webpack and allows for \"app ejection\" -- which is short for give me my config and set up my npm scripts</li>\n        <li>Has support for service workers and server side rendering -- undoubtedly each come with associated headaches.</li>\n        <li>Not ideal for creating consumable libraries. Designed more for application development. Look into\n          <a href=\"https://www.npmjs.com/package/ng-packagr\" target=\"_blank\">ng-packagr</a> for more info.</li>\n      </ul>\n    </section>\n\n  </section>\n</main>\n"
 
 /***/ }),
 
