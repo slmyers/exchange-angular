@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MdDialog } from '@angular/material';
 
 @Component({
   selector: 'app-language-services',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LanguageServicesComponent implements OnInit {
 
-  constructor() { }
+  constructor(public dialog: MdDialog) { }
 
   ngOnInit() {
   }

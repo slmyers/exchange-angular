@@ -31,8 +31,8 @@ import { MyModalComponent, MyModalDialog } from './router-overview/auxiliary-rou
 import { SharedModule } from './shared/shared.module';
 import { ToolingOverviewComponent } from './tooling-overview/tooling-overview.component';
 import { NgCliComponent } from './tooling-overview/ng-cli/ng-cli.component';
-import { AngularLanguageServicesComponent } from './tooling-overview/angular-language-services/angular-language-services.component';
 import { LanguageServicesComponent } from './tooling-overview/language-services/language-services.component';
+import { ExampleGifComponent, AlsGifComponent } from './tooling-overview/language-services/example-gif/example-gif.component';
 
 
 const appRoutes: Routes = [
@@ -110,8 +110,9 @@ const appRoutes: Routes = [
     MyModalDialog,
     ToolingOverviewComponent,
     NgCliComponent,
-    AngularLanguageServicesComponent,
     LanguageServicesComponent,
+    ExampleGifComponent,
+    AlsGifComponent
   ],
   imports: [
     BrowserModule,
@@ -134,7 +135,7 @@ const appRoutes: Routes = [
     SharedModule
   ],
   providers: [FormServiceService, FakeApiService],
-  entryComponents: [ MyModalDialog ],
+  entryComponents: [ MyModalDialog, AlsGifComponent ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,7 +1,8 @@
 /* tslint:disable */
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { MdDialog } from '@angular/material';
-import { Router, ActivatedRouteSnapshot } from '@angular/router';
+import { Router } from '@angular/router';
+import { Subscription } from 'rxjs/Subscription';
 
 @Component({
   selector: 'app-my-modal',
@@ -9,15 +10,21 @@ import { Router, ActivatedRouteSnapshot } from '@angular/router';
   styleUrls: ['./my-modal.component.css']
 })
 export class MyModalComponent implements OnInit, OnDestroy {
+  sub: Subscription;
   constructor(public dialog: MdDialog, private router: Router) { }
 
   ngOnInit() {
-    setTimeout( () => this.dialog.open(MyModalDialog), 0 );
-    this.dialog.afterAllClosed.subscribe(_ => this.router.navigate(['/routing/auxiliary-routes/', {outlets: {modal: null}}]));
+    setTimeout( () => this.dialog.open(MyModalDialog));
+    this.sub = this.dialog.afterAllClosed.subscribe(_ => {
+      this.router.navigate(['/routing/auxiliary-routes/', {outlets: {modal: null}}])
+    });
   }
 
   ngOnDestroy() {
     this.dialog.closeAll();
+    if (!this.sub.closed) {
+      this.sub.unsubscribe();
+    }
   }
 
 }

@@ -11,15 +11,13 @@
     <section class="code-block">
       <prism-block [code]="templateComponent" language="typescript"></prism-block>
     </section>
+
     <section class="bullet-points">
       <form #f="ngForm" (ngSubmit)="submit(f)">
         <span> <input placeholder="name" [(ngModel)]="name" name="name" required /> </span>
         <span> <input placeholder="age" [(ngModel)]="age" name="age" pattern="[0-9]+" required /> </span>
         <button type="submit" [disabled]="!f.valid">Submit</button>
       </form>
-    </section>
-
-    <section class="bullet-points">
       <ul title="overview points">
         <li>
           This is a `template driven form`. Very similar to an AngularJS form.
@@ -30,7 +28,6 @@
         </li>
       </ul>
     </section>
-    <hr/>
 
     <h2 style="margin-left: 40%; margin-bottom: 1.5rem;">Reactive Form</h2>
     <section class="code-block">
@@ -62,6 +59,5 @@
 
       </ul>
     </section>
-    <hr/>
   </section>
 </main>

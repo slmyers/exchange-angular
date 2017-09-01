@@ -36,13 +36,20 @@ app-arrow-navigation#left {
 }
 
 section.code-block {
-  width: 75%;
+  min-width: 75%;
+  max-width: 100%;
   margin: 1em auto;
+  font-size: larger;
 }
 
 section.bullet-points {
   width: 70vw;
   margin-top: 0.2em;
+  margin-bottom: 5em;
+  background-color: white;
+  padding: 0.5em;
+  border: solid 2px darkgrey;
+  border-radius: 4px;
 }
 
 section > app-hello-world {
@@ -67,8 +74,9 @@ hr {
 
 body {
   background-color: whitesmoke;
+  font-family: 'Roboto', sans-serif;
 }
 
 ul {
-  list-style: circle outside none;
+  list-style: lower-roman url('/assets/ic_label_outline_black_36dp_1x.png') outside;
 }

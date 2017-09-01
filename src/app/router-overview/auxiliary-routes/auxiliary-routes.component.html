@@ -8,7 +8,7 @@
     <section class="code-block">
       <prism-block [code]="auxMarkup" language="html"></prism-block>
     </section>
-    <hr/>
+
     <router-outlet name="modal"></router-outlet>
     <a [routerLink]="[ {outlets: { modal: 'modal' } } ]"><button md-button>Open Modal</button></a>
 
