@@ -2,6 +2,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { ActivatedRoute } from '@angular/router';
+import 'rxjs/add/operator/scan';
 
 @Component({
   selector: 'app-router-configuration',
@@ -95,12 +96,13 @@ export class AppModule { }
   ];
 
   color: Observable<string>;
+  _count = 0;
 
   constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.color = this.route.queryParamMap
-      .map( (obj: any) => obj.params.color ? obj.params.color : 'inherit');
+      .map( (obj: any) => obj.params.color ? obj.params.color : 'inherit')
+      .do(_ => ++this._count);
   }
-
 }

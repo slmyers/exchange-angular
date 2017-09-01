@@ -1,9 +1,10 @@
 .color-output {
-  margin-left: 15vw;
   border: solid 1px lightgrey;
   padding: 1em;
   display: flex;
   justify-content: space-around;
+  line-height: 180%;
+  font-size: 180%;
 }
 
 .color-output > div {
