@@ -127,6 +127,8 @@ var AppComponent = (function () {
             }
             _this.router.navigateByUrl([location[0], section[newIndex]].join('/'));
         });
+        this.router.events.map(function (ev) { return ev instanceof __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* NavigationEnd */]; })
+            .subscribe(function (_) { return document.body.scrollTop = 0; });
     };
     return AppComponent;
 }());
@@ -304,7 +306,7 @@ AppModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_8__angular_material__["g" /* MdDialogModule */],
             __WEBPACK_IMPORTED_MODULE_8__angular_material__["h" /* MdButtonModule */],
             __WEBPACK_IMPORTED_MODULE_8__angular_material__["i" /* MdTooltipModule */],
-            __WEBPACK_IMPORTED_MODULE_4__angular_router__["a" /* RouterModule */].forRoot(appRoutes, { enableTracing: true }),
+            __WEBPACK_IMPORTED_MODULE_4__angular_router__["a" /* RouterModule */].forRoot(appRoutes),
             __WEBPACK_IMPORTED_MODULE_5__angular_forms__["a" /* FormsModule */],
             __WEBPACK_IMPORTED_MODULE_5__angular_forms__["b" /* ReactiveFormsModule */],
             __WEBPACK_IMPORTED_MODULE_25__shared_shared_module__["a" /* SharedModule */]
@@ -596,7 +598,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components-overview/templates/templates.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<main>\n  <section class=\"content\">\n    <app-arrow-navigation id=\"right\"><a routerLink=\"/components/change-detection\"><i class=\"material-icons\">keyboard_arrow_right</i></a></app-arrow-navigation>\n    <app-arrow-navigation id=\"left\"><a routerLink=\"/components/intro\"><i class=\"material-icons\">keyboard_arrow_left</i></a></app-arrow-navigation>\n\n    <h1 class=\"title\"> > Unidirectional Dataflow </h1>\n    <section class=\"code-block\">\n      <prism-block [code]=\"templateBindings\" language=\"html\"></prism-block>\n    </section>\n    <section class=\"code-block\">\n      <prism-block [code]=\"componentBindings\" language=\"typescript\"></prism-block>\n    </section>\n    <section class=\"bullet-points\">\n      <ul title=\"overview points\">\n        <li>\n          attributes wrapped in <code> [] </code> denote property bindings while those wrapped in <code> () </code>  represent event bindings.\n        </li>\n        <li>\n          num in parent = {{ num }}\n        </li>\n      </ul>\n      <app-property-binding [num]=\"num\" (update)=\"num = num + 2\"></app-property-binding>\n    </section>\n\n    <h1 class=\"title\"> > Directives </h1>\n    <section class=\"code-block\">\n      <prism-block [code]=\"directives\" language=\"html\"></prism-block>\n    </section>\n    <section class=\"bullet-points\">\n      <ul title=\"overview points\">\n        <li>\n          directives marked with <code> * </code> are called structural directives and will make changes to the <code> DOM </code>\n        </li>\n\n        <li>\n          <code> * </code> desugars (at some level) to an HTML5 template.\n        </li>\n\n        <li>\n          directives without this prefix are called attribute directives and are used to change the appearance or behavior of a  <code> DOM </code>  element.\n        </li>\n\n      </ul>\n    </section>\n\n    <h1 class=\"title\"> > Pipes </h1>\n    <section class=\"code-block\">\n      <prism-block [code]=\"pipes\" language=\"html\"></prism-block>\n    </section>\n    <section class=\"bullet-points\">\n      <ul title=\"overview points\">\n\n        <li>\n          The <code>|</code> operator feeds input through a pipe. Analogous to AngularJS filter.\n        </li>\n\n        <li>\n          The <code> async pipe </code> will resolve a promise or manage an Observable such that the value is available\n          in the template.\n        </li>\n\n        <li>\n          <code> ng-template </code>is a wrapper around native <code>DOM</code> template. The <code># attribute</code>  is akin to an <code>id</code>.\n        </li>\n\n      </ul>\n    </section>\n\n\n  </section>\n</main>\n"
+module.exports = "<main>\n  <section class=\"content\">\n    <app-arrow-navigation id=\"right\"><a routerLink=\"/components/change-detection\"><i class=\"material-icons\">keyboard_arrow_right</i></a></app-arrow-navigation>\n    <app-arrow-navigation id=\"left\"><a routerLink=\"/components/intro\"><i class=\"material-icons\">keyboard_arrow_left</i></a></app-arrow-navigation>\n\n    <h1 class=\"title\"> > Component Binding </h1>\n    <section class=\"code-block\">\n      <prism-block [code]=\"templateBindings\" language=\"html\"></prism-block>\n    </section>\n    <section class=\"code-block\">\n      <prism-block [code]=\"componentBindings\" language=\"typescript\"></prism-block>\n    </section>\n    <section class=\"bullet-points\">\n      <ul title=\"overview points\">\n        <li>\n          attributes wrapped in <code> [] </code> denote property bindings while those wrapped in <code> () </code>  represent event bindings.\n        </li>\n      </ul>\n    </section>\n\n    <h1 class=\"title\"> > Directives </h1>\n    <section class=\"code-block\">\n      <prism-block [code]=\"directives\" language=\"html\"></prism-block>\n    </section>\n    <section class=\"bullet-points\">\n      <ul title=\"overview points\">\n        <li>\n          directives marked with <code> * </code> are called structural directives and will make changes to the <code> DOM </code>\n        </li>\n\n        <li>\n          <code> * </code> desugars (at some level) to an HTML5 template.\n        </li>\n\n        <li>\n          directives without this prefix are called attribute directives and are used to change the appearance or behavior of a  <code> DOM </code>  element.\n        </li>\n\n      </ul>\n    </section>\n\n    <h1 class=\"title\"> > Pipes </h1>\n    <section class=\"code-block\">\n      <prism-block [code]=\"pipes\" language=\"html\"></prism-block>\n    </section>\n    <section class=\"bullet-points\">\n      <ul title=\"overview points\">\n\n        <li>\n          The <code>|</code> operator feeds input through a pipe. Analogous to AngularJS filter.\n        </li>\n\n        <li>\n          The <code> async pipe </code> will resolve a promise or manage an Observable such that the value is available\n          in the template.\n        </li>\n\n        <li>\n          <code> ng-template </code>is a wrapper around native <code>DOM</code> template. The <code># attribute</code>  is akin to an <code>id</code>.\n        </li>\n\n      </ul>\n    </section>\n\n\n  </section>\n</main>\n"
 
 /***/ }),
 
@@ -618,8 +620,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 var TemplatesComponent = (function () {
     function TemplatesComponent() {
-        this.templateBindings = "\n<!-- templates.component.html -->\n<ul>\n  <li>\n    num in parent = {{ num }}\n  </li>\n</ul>\n<app-property-binding [num]=\"num\" (update)=\"num = num + 2\"></app-property-binding>\n<!--property-binding.component.html-->\n<span>\n  num in child = {{ num }}\n  <button md-button (click)=\"update.emit()\">update</button>\n</span>";
-        this.componentBindings = "\n//property-binding.component.ts\nexport class PropertyBindingComponent implements OnInit {\n  @Input() num: number;\n  @Output() update = new EventEmitter();\n\n  constructor() { }\n\n  ngOnInit() {\n    this.num++;\n  }\n}";
+        this.templateBindings = "\n<!-- parent.component.html -->\n<app-property-binding [num]=\"num\" (update)=\"num = num + 2\"></app-property-binding>";
+        this.componentBindings = "\n//property-binding.component.ts\nexport class PropertyBindingComponent {\n  @Input() num: number;\n  @Output() update = new EventEmitter();\n}";
         this.directives = "<my-other-component *ngFor=\"let item of items\" highlight></my-other-component>";
         this.pipes = "<div *ngIf=\"asyncBook$ | async as book; else loading\">\n   Id: {{book.id}}, Name: {{book.name}}\n</div>   \n<ng-template #loading>Loading Data...</ng-template>";
         this.num = 0;
@@ -1331,7 +1333,7 @@ RouterConfigurationComponent = __decorate([
         template: __webpack_require__("../../../../../src/app/router-overview/router-configuration/router-configuration.component.html"),
         styles: [__webpack_require__("../../../../../src/app/router-overview/router-configuration/router-configuration.component.css")]
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* ActivatedRoute */]) === "function" && _a || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["d" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["d" /* ActivatedRoute */]) === "function" && _a || Object])
 ], RouterConfigurationComponent);
 
 var _a;

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, NavigationEnd } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/fromEvent';
 import 'rxjs/add/operator/pluck';
@@ -60,5 +60,8 @@ export class AppComponent implements OnInit {
 
         this.router.navigateByUrl( [location[0], section[newIndex]].join('/') );
       });
+
+    this.router.events.map(ev => ev instanceof NavigationEnd )
+      .subscribe(_ => document.body.scrollTop = 0);
   }
 }

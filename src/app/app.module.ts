@@ -116,10 +116,7 @@ const appRoutes: Routes = [
     MdDialogModule,
     MdButtonModule,
     MdTooltipModule,
-    RouterModule.forRoot(
-      appRoutes,
-      { enableTracing: true }
-    ),
+    RouterModule.forRoot(appRoutes),
     FormsModule,
     ReactiveFormsModule,
     SharedModule
