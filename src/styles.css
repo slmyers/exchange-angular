@@ -36,14 +36,13 @@ app-arrow-navigation#left {
 }
 
 section.code-block {
-  min-width: 75%;
-  max-width: 100%;
+  width: 100%;
   margin: 1em auto;
   font-size: x-large;
 }
 
 section.bullet-points {
-  width: 70vw;
+  width: 99%;
   margin-top: 0.2em;
   margin-bottom: 5em;
   background-color: white;
@@ -79,4 +78,10 @@ body {
 
 ul {
   list-style: lower-roman url('/assets/ic_label_outline_black_36dp_1x.png') outside;
+}
+
+.title {
+  font-size: xx-large;
+  font-weight: bolder;
+
 }

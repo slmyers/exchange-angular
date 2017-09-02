@@ -31,7 +31,7 @@ export class SomeComponent {
   reactiveExample = `
 <div> Async validation ran: {{asyncValidationRun}}</div>
 <form 
-    class="reactive-auto-complete" 
+    class="reactive-form" 
     [ngStyle]="{'border': myForm.valid ? 'blue solid 1px' : 'red solid 1px'}" 
     novalidate 
     (ngSubmit)="submit(myForm)" 
@@ -44,7 +44,7 @@ export class SomeComponent {
 
   reactiveComponent = `
 myForm: FormGroup;
-asyncValidationRun = false;
+count = 0;
 ngOnInit() {
   this.myForm = new FormGroup({
     name: new FormControl('', Validators.required),
@@ -56,7 +56,7 @@ validateAsync(c: FormControl) {
       const name = c.value.name;
       const age = c.value.age;
       const valid = ( name.toLowerCase().trim() === 'john' && age === '23' );
-      this.asyncValidationRun = true;
+      this.count++;
 
       setTimeout( () => {
         if (valid) {
@@ -72,7 +72,7 @@ validateAsync(c: FormControl) {
 
 
   myForm: FormGroup;
-  asyncValidationRun = false;
+  count = 0;
   ngOnInit() {
     this.myForm = new FormGroup({
       name: new FormControl('', Validators.required),
@@ -91,7 +91,7 @@ validateAsync(c: FormControl) {
       const name = c.value.name;
       const age = c.value.age;
       const valid = ( name.toLowerCase().trim() === 'john' && age === '23' );
-      this.asyncValidationRun = true;
+      this.count++;
 
       setTimeout( () => {
         if (valid) {

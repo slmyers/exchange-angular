@@ -72,7 +72,7 @@ export class FormService {
 
   validateAsync(c: FormControl) {
     return Observable.of(c.value)
-      .switchMap( val => this.api.getByBoth(val.brand, val.color) )
+      .mergeMap( val => this.api.getByBoth(val.brand, val.color) )
       .do( content => this.content$.next(content) )
       .map( (content: any[]) => content.length > 0 ? null : { emptyResponse: true } );
   }

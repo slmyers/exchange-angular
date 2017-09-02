@@ -16,7 +16,7 @@ export class MyModalComponent implements OnInit, OnDestroy {
   ngOnInit() {
     setTimeout( () => this.dialog.open(MyModalDialog));
     this.sub = this.dialog.afterAllClosed.subscribe(_ => {
-      this.router.navigate(['/routing/auxiliary-routes/', {outlets: {modal: null}}])
+      this.router.navigate(['/', {outlets: {modal: null} }], )
     });
   }
 

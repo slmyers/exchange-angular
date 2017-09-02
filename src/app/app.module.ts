@@ -33,13 +33,15 @@ import { ToolingOverviewComponent } from './tooling-overview/tooling-overview.co
 import { NgCliComponent } from './tooling-overview/ng-cli/ng-cli.component';
 import { LanguageServicesComponent } from './tooling-overview/language-services/language-services.component';
 import { ExampleGifComponent, AlsGifComponent } from './tooling-overview/language-services/example-gif/example-gif.component';
+import { PropertyBindingComponent } from './components-overview/templates/property-binding/property-binding.component';
 
 
 const appRoutes: Routes = [
+  { path: 'modal',  outlet: 'modal',  component: MyModalComponent },
   {
     path: '',
     component: GridListOverviewComponent,
-    pathMatch: 'full'
+    pathMatch: 'full',
   },
   {
     path: 'components',
@@ -63,21 +65,8 @@ const appRoutes: Routes = [
     component: RouterOverviewComponent,
     children: [
       { path: 'configuration', component: RouterConfigurationComponent },
-      {
-        path: 'auxiliary-routes',
-        component: AuxiliaryRoutesComponent,
-        children: [
-          {
-            path: 'modal',
-            outlet: 'modal',
-            component: MyModalComponent
-          }
-        ]
-      },
-      {
-        path: 'lazy-load',
-        loadChildren: 'app/lazy/lazy.module#LazyModule'
-      }
+      { path: 'auxiliary-routes', component: AuxiliaryRoutesComponent },
+      { path: 'lazy-load',  loadChildren: 'app/lazy/lazy.module#LazyModule' },
     ]
   },
   {
@@ -112,7 +101,8 @@ const appRoutes: Routes = [
     NgCliComponent,
     LanguageServicesComponent,
     ExampleGifComponent,
-    AlsGifComponent
+    AlsGifComponent,
+    PropertyBindingComponent
   ],
   imports: [
     BrowserModule,

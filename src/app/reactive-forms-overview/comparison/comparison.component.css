@@ -4,3 +4,27 @@
   padding: 1em;
   background-color: lightskyblue;
 }
+
+section > p {
+  line-height: 180%;
+  font-size: 180%;
+}
+
+form {
+  line-height: 180%;
+  font-size: 180%;
+}
+
+form > button {
+  line-height: 100%;
+  font-size: 100%;
+}
+
+form > * > input {
+  line-height: 100%;
+  font-size: 100%;
+}
+
+
+
+

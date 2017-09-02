@@ -2,15 +2,16 @@
   <section class="content">
     <app-arrow-navigation id="right"><a routerLink="/routing/auxiliary-routes/"><i class="material-icons">keyboard_arrow_right</i></a></app-arrow-navigation>
     <app-arrow-navigation id="left"><a routerLink=""><i class="material-icons">keyboard_arrow_left</i></a></app-arrow-navigation>
-    <h3> Configuration is just an Array of Objects </h3>
+    <h1 class="title"> > Configuration is just an Array of Objects </h1>
     <section class="code-block">
       <prism-block [code]="routerConfiguration" language="typescript"></prism-block>
     </section>
     Taken from <a href="https://angular.io/guide/router#configuration" target="_blank">here</a>.
 
 
-    <h3> Routes are reactive </h3>
+    <h1 class="title"> > Routes are reactive </h1>
     <p> what isn't? 'namsayin </p>
+    <p> let's talk about Hot vs Cold Observable while we're here. <a href="https://medium.com/@benlesh/hot-vs-cold-observables-f8094ed53339" target="_blank">More Info via Ben Lesh</a> </p>
 
     <ul>
       <li *ngFor="let choice of colors">
@@ -32,7 +33,7 @@
 
     <section class="bullet-points">
       <ul title="overview points" [style.color]="color | async">
-        <li> The number of executions is: {{ _count }}</li>
+        <li> The number of executions is: {{ count }}</li>
         <li> This color is {{ color | async }} </li>
       </ul>
     </section>
@@ -43,6 +44,39 @@
 
     <section class="code-block">
       <prism-block [code]="templateCode" language="html"></prism-block>
+    </section>
+
+    <hr/>
+
+    <h1 class="title"> > Share the <code>Observable</code> </h1>
+
+    <ul>
+      <li *ngFor="let choice of colors">
+        <a
+          routerLinkActive="active-link"
+          [routerLink]="['./']"
+          [queryParams]="{ color: choice.color}"
+          [routerLinkActiveOptions]="{ exact: true }">{{ choice.color }} </a>
+      </li>
+      <li>
+        <a routerLinkActive="active-link" [routerLink]="['./']" [routerLinkActiveOptions]="{ exact: true }"> none </a>
+      </li>
+    </ul>
+
+
+    <div class="color-output">
+      <div *ngFor="let choice of colors" [ngStyle]="{'border-color': (_color | async) === choice.color ? choice.color : null }"> {{ choice.color }}</div>
+    </div>
+
+    <section class="bullet-points">
+      <ul title="overview points" [style.color]="_color | async">
+        <li> The number of executions is: {{ _count }}</li>
+        <li> This color is {{ _color | async }} </li>
+      </ul>
+    </section>
+
+    <section class="code-block">
+      <prism-block [code]="_componentCode" language="typescript"></prism-block>
     </section>
 
   </section>

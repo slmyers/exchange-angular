@@ -7,7 +7,7 @@ import 'rxjs/add/observable/of';
 import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/do';
-import 'rxjs/add/operator/switchMap';
+import 'rxjs/add/operator/mergeMap';
 import 'rxjs/add/observable/fromPromise';
 
 @Injectable()
@@ -36,7 +36,7 @@ export class FormServiceService {
 
   validateAsync(c: FormControl) {
     return Observable.of(c.value)
-      .switchMap( val => this.api.getByBoth(val.brand, val.color))
+      .mergeMap( val => this.api.getByBoth(val.brand, val.color))
       .do(content => this.content$.next(content))
       .map((content: any[]) => content.length > 0 ? null : {emptyResponse: true});
   }

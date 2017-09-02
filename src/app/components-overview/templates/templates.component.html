@@ -2,6 +2,8 @@
   <section class="content">
     <app-arrow-navigation id="right"><a routerLink="/components/change-detection"><i class="material-icons">keyboard_arrow_right</i></a></app-arrow-navigation>
     <app-arrow-navigation id="left"><a routerLink="/components/intro"><i class="material-icons">keyboard_arrow_left</i></a></app-arrow-navigation>
+
+    <h1 class="title"> > Unidirectional Dataflow </h1>
     <section class="code-block">
       <prism-block [code]="templateBindings" language="html"></prism-block>
     </section>
@@ -13,10 +15,14 @@
         <li>
           attributes wrapped in <code> [] </code> denote property bindings while those wrapped in <code> () </code>  represent event bindings.
         </li>
+        <li>
+          num in parent = {{ num }}
+        </li>
       </ul>
+      <app-property-binding [num]="num" (update)="num = num + 2"></app-property-binding>
     </section>
 
-
+    <h1 class="title"> > Directives </h1>
     <section class="code-block">
       <prism-block [code]="directives" language="html"></prism-block>
     </section>
@@ -27,13 +33,17 @@
         </li>
 
         <li>
+          <code> * </code> desugars (at some level) to an HTML5 template.
+        </li>
+
+        <li>
           directives without this prefix are called attribute directives and are used to change the appearance or behavior of a  <code> DOM </code>  element.
         </li>
 
       </ul>
     </section>
 
-
+    <h1 class="title"> > Pipes </h1>
     <section class="code-block">
       <prism-block [code]="pipes" language="html"></prism-block>
     </section>

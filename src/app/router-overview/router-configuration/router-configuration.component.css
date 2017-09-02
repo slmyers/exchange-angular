@@ -8,7 +8,8 @@
 }
 
 .color-output > div {
-  border: solid 1px white;
+  border: solid 2px transparent;
+  padding: 2em;
 }
 
 .active-link {
@@ -19,3 +20,11 @@
 .inactive {
   text-decoration: none;
 }
+
+.active-link::after {
+  font-family: "Material Icons";
+  content: "\E885";
+  color: black;
+}
+
+/* <i class="material-icons">&#xE885;</i> */

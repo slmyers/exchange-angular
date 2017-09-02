@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { ActivatedRoute } from '@angular/router';
 import 'rxjs/add/operator/scan';
+import 'rxjs/add/operator/share';
 
 @Component({
   selector: 'app-router-configuration',
@@ -48,12 +49,14 @@ export class AppModule { }
   ];
 
   color: Observable<string>;
+  count = 0;
 
   constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.color = this.route.queryParamMap
-      .map( (obj: any) => obj.params.color ? obj.params.color : 'inherit');
+      .map( (obj: any) => obj.params.color ? obj.params.color : 'inherit')
+      .do(_ => ++this.count);
   }
 ...
 `;
@@ -84,10 +87,24 @@ export class AppModule { }
 
 <section class="bullet-points">
   <ul title="overview points" [style.color]="color | async">
+    <li> The number of executions is: {{ count }}</li>
     <li> This color is {{ color | async }} </li>
   </ul>
 </section>
 `;
+
+  _componentCode = `
+  _color: Observable<string>;
+  _count = 0;
+  
+  ngOnInit() {
+    this._color = this.route.queryParamMap
+      .map( (obj: any) => obj.params.color ? obj.params.color : 'inherit')
+      .do(_ => ++this._count)
+      .share();
+  }
+`;
+
 
   colors = [
     { color: 'red' },
@@ -96,6 +113,8 @@ export class AppModule { }
   ];
 
   color: Observable<string>;
+  _color: Observable<string>;
+  count = 0;
   _count = 0;
 
   constructor(private route: ActivatedRoute) { }
@@ -103,6 +122,12 @@ export class AppModule { }
   ngOnInit() {
     this.color = this.route.queryParamMap
       .map( (obj: any) => obj.params.color ? obj.params.color : 'inherit')
-      .do(_ => ++this._count);
+      .do(_ => ++this.count);
+
+    this._color = this.route.queryParamMap
+      .map( (obj: any) => obj.params.color ? obj.params.color : 'inherit')
+      .do(_ => ++this._count)
+      .share();
+
   }
 }

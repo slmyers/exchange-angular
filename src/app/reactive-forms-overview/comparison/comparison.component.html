@@ -3,7 +3,7 @@
     <app-arrow-navigation id="right"><a routerLink="/reactive-forms/example"><i class="material-icons">keyboard_arrow_right</i></a></app-arrow-navigation>
     <app-arrow-navigation id="left"><a routerLink=""><i class="material-icons">keyboard_arrow_left</i></a></app-arrow-navigation>
 
-    <h2 style="margin-left: 40%; margin-bottom: 1.5rem;">Template Driven Form</h2>
+    <h1 class="title"> > Template Driven Form </h1>
 
     <section class="code-block">
       <prism-block [code]="templateExample" language="html"></prism-block>
@@ -20,16 +20,16 @@
       </form>
       <ul title="overview points">
         <li>
-          This is a `template driven form`. Very similar to an AngularJS form.
+          This is a <code>template</code> driven form`. Very similar to an AngularJS form.
         </li>
 
         <li>
-          How to get a reference to the form variable? How to react to the form changes before submit?
+          How to get a reference to the form variable? How to manipulate programmatically?
         </li>
       </ul>
     </section>
 
-    <h2 style="margin-left: 40%; margin-bottom: 1.5rem;">Reactive Form</h2>
+    <h1 class="title"> > Reactive Form </h1>
     <section class="code-block">
       <prism-block [code]="reactiveExample" language="html"></prism-block>
     </section>
@@ -37,8 +37,8 @@
       <prism-block [code]="reactiveComponent" language="typescript"></prism-block>
     </section>
     <section class="bullet-points">
-      <div> Async validation ran: {{asyncValidationRun}}</div>
-      <form class="reactive-auto-complete" [ngStyle]="{'border': myForm.valid ? 'green dashed 5px' : 'red solid 5px'}"  novalidate (ngSubmit)="submit(myForm)" [formGroup]="myForm">
+      <p> Async validation ran: {{count}} times.</p>
+      <form class="reactive-form" [ngStyle]="{'border': myForm.valid ? 'green dashed 5px' : 'red solid 5px'}"  novalidate (ngSubmit)="submit(myForm)" [formGroup]="myForm">
         <span> <input placeholder="name" formControlName="name"/> </span>
         <span> <input placeholder="age" formControlName="age"/> </span>
         <button type="submit" [disabled]="!myForm.valid">Submit</button>
@@ -46,11 +46,11 @@
       <ul title="overview points">
 
         <li>
-          Data structure so you can leverage services and pass `FormGroup` as a property.
+          Data structure so you can reference <code>FormGroup</code> as a property.
         </li>
 
         <li>
-          `FormGroup#valueChanges` exposes an `Observable`.
+          <code>FormGroup#valueChanges</code> exposes an <code>Observable</code>.
         </li>
 
         <li>

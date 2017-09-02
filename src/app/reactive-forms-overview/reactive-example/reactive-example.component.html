@@ -3,7 +3,8 @@
     <app-arrow-navigation id="right"><a routerLink=""><i class="material-icons">keyboard_arrow_right</i></a></app-arrow-navigation>
     <app-arrow-navigation id="left"><a routerLink="/reactive-forms/comparison-with-template-forms"><i class="material-icons">keyboard_arrow_left</i></a></app-arrow-navigation>
 
-    <h2 style="margin-left: 40%; margin-bottom: 1.5rem;">Contrived Reactive Example</h2>
+    <h1 class="title"> > Contrived(?) Reactive Example </h1>
+
     <section class="bullet-points" [style.padding]="'2em 0'">
       <section class="example" [formGroup]="form">
 
@@ -25,9 +26,6 @@
 
       </section>
 
-
-
-
       <section class="centered">
         <md-divider></md-divider>
 
@@ -44,21 +42,17 @@
 
     </section>
 
-
-    <section class="code-block">
-      <prism-block [code]="formServiceDescription" language="typescript"></prism-block>
-    </section>
-
-
     <section class="code-block">
       <prism-block [code]="componentTemplateDescription" language="html"></prism-block>
     </section>
-
 
     <section class="code-block">
       <prism-block [code]="componentClassDescription" language="typescript"></prism-block>
     </section>
 
+    <section class="code-block">
+      <prism-block [code]="formServiceDescription" language="typescript"></prism-block>
+    </section>
 
   </section>
 </main>

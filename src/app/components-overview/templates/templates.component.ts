@@ -7,19 +7,38 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TemplatesComponent implements OnInit {
   templateBindings = `
-<!--my-component.template.html-->
-<my-component [prop]="foo" (bar)="handleBar($event)></my-component>`;
+<!-- templates.component.html -->
+<ul>
+  <li>
+    num in parent = {{ num }}
+  </li>
+</ul>
+<app-property-binding [num]="num" (update)="num = num + 2"></app-property-binding>
+<!--property-binding.component.html-->
+<span>
+  num in child = {{ num }}
+  <button md-button (click)="update.emit()">update</button>
+</span>`
+
+  ;
   componentBindings = `
-//my-component.component.ts
-export class MyComponent {
-  @Input() prop;
-  @Output() bar = new EventEmitter();
+//property-binding.component.ts
+export class PropertyBindingComponent implements OnInit {
+  @Input() num: number;
+  @Output() update = new EventEmitter();
+
+  constructor() { }
+
+  ngOnInit() {
+    this.num++;
+  }
 }`;
   directives = `<my-other-component *ngFor="let item of items" highlight></my-other-component>`;
   pipes = `<div *ngIf="asyncBook$ | async as book; else loading">
    Id: {{book.id}}, Name: {{book.name}}
 </div>   
 <ng-template #loading>Loading Data...</ng-template>`;
+  num = 0;
   constructor() { }
 
   ngOnInit() {
