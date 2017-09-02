@@ -72,9 +72,6 @@ export class AppModule { }
       {{ choice.color }} 
     </a>
   </li>
-  <li>
-    <a routerLinkActive="active-link" [routerLink]="['./']" [routerLinkActiveOptions]="{ exact: true }"> none </a>
-  </li>
 </ul>
 
 <div class="color-output">

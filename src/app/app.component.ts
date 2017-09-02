@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, NavigationEnd } from '@angular/router';
+import {Router, NavigationEnd, ActivatedRoute} from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/fromEvent';
 import 'rxjs/add/operator/pluck';
 import 'rxjs/add/operator/filter';
+import 'rxjs/add/operator/mergeMapTo';
+import 'rxjs/add/operator/do';
 
 @Component({
   selector: 'app-root',
@@ -34,7 +36,7 @@ export class AppComponent implements OnInit {
     ]
   };
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private route: ActivatedRoute) {}
 
   ngOnInit() {
     Observable.fromEvent(document, 'keyup')
@@ -62,6 +64,12 @@ export class AppComponent implements OnInit {
       });
 
     this.router.events.map(ev => ev instanceof NavigationEnd )
-      .subscribe(_ => document.body.scrollTop = 0);
+      .debounceTime(20)
+      .mergeMapTo(this.route.queryParamMap)
+      .pluck('params')
+      .filter(params => Object.keys(params).length === 0)
+      .subscribe(_ => {
+        document.body.scrollTop = 0;
+      });
   }
 }

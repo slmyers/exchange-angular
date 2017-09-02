@@ -64,6 +64,10 @@ module.exports = "\n<app-toolbar></app-toolbar>\n<router-outlet></router-outlet>
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_pluck___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_pluck__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_filter__ = __webpack_require__("../../../../rxjs/add/operator/filter.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_filter___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_filter__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_add_operator_mergeMapTo__ = __webpack_require__("../../../../rxjs/add/operator/mergeMapTo.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_add_operator_mergeMapTo___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_rxjs_add_operator_mergeMapTo__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_rxjs_add_operator_do__ = __webpack_require__("../../../../rxjs/add/operator/do.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_rxjs_add_operator_do___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7_rxjs_add_operator_do__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -80,9 +84,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
+
 var AppComponent = (function () {
-    function AppComponent(router) {
+    function AppComponent(router, route) {
         this.router = router;
+        this.route = route;
         this.title = 'app';
         this.routes = {
             'components': [
@@ -128,7 +135,13 @@ var AppComponent = (function () {
             _this.router.navigateByUrl([location[0], section[newIndex]].join('/'));
         });
         this.router.events.map(function (ev) { return ev instanceof __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* NavigationEnd */]; })
-            .subscribe(function (_) { return document.body.scrollTop = 0; });
+            .debounceTime(20)
+            .mergeMapTo(this.route.queryParamMap)
+            .pluck('params')
+            .filter(function (params) { return Object.keys(params).length === 0; })
+            .subscribe(function (_) {
+            document.body.scrollTop = 0;
+        });
     };
     return AppComponent;
 }());
@@ -138,10 +151,10 @@ AppComponent = __decorate([
         template: __webpack_require__("../../../../../src/app/app.component.html"),
         styles: [__webpack_require__("../../../../../src/app/app.component.css")]
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */]) === "function" && _a || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["d" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["d" /* ActivatedRoute */]) === "function" && _b || Object])
 ], AppComponent);
 
-var _a;
+var _a, _b;
 //# sourceMappingURL=app.component.js.map
 
 /***/ }),
@@ -1271,7 +1284,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/router-overview/router-configuration/router-configuration.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<main>\n  <section class=\"content\">\n    <app-arrow-navigation id=\"right\"><a routerLink=\"/routing/auxiliary-routes/\"><i class=\"material-icons\">keyboard_arrow_right</i></a></app-arrow-navigation>\n    <app-arrow-navigation id=\"left\"><a routerLink=\"\"><i class=\"material-icons\">keyboard_arrow_left</i></a></app-arrow-navigation>\n    <h1 class=\"title\"> > Configuration is just an Array of Objects </h1>\n    <section class=\"code-block\">\n      <prism-block [code]=\"routerConfiguration\" language=\"typescript\"></prism-block>\n    </section>\n    Taken from <a href=\"https://angular.io/guide/router#configuration\" target=\"_blank\">here</a>.\n\n\n    <h1 class=\"title\"> > Routes are reactive </h1>\n    <p> what isn't? 'namsayin </p>\n    <p> let's talk about Hot vs Cold Observable while we're here. <a href=\"https://medium.com/@benlesh/hot-vs-cold-observables-f8094ed53339\" target=\"_blank\">More Info via Ben Lesh</a> </p>\n\n    <ul>\n      <li *ngFor=\"let choice of colors\">\n        <a\n          routerLinkActive=\"active-link\"\n          [routerLink]=\"['./']\"\n          [queryParams]=\"{ color: choice.color}\"\n          [routerLinkActiveOptions]=\"{ exact: true }\">{{ choice.color }} </a>\n      </li>\n      <li>\n        <a routerLinkActive=\"active-link\" [routerLink]=\"['./']\" [routerLinkActiveOptions]=\"{ exact: true }\"> none </a>\n      </li>\n    </ul>\n\n\n    <div class=\"color-output\">\n      <div *ngFor=\"let choice of colors\" [ngStyle]=\"{'border-color': (color | async) === choice.color ? choice.color : null }\"> {{ choice.color }}</div>\n    </div>\n\n    <section class=\"bullet-points\">\n      <ul title=\"overview points\" [style.color]=\"color | async\">\n        <li> The number of executions is: {{ count }}</li>\n        <li> This color is {{ color | async }} </li>\n      </ul>\n    </section>\n\n    <section class=\"code-block\">\n      <prism-block [code]=\"componentCode\" language=\"typescript\"></prism-block>\n    </section>\n\n    <section class=\"code-block\">\n      <prism-block [code]=\"templateCode\" language=\"html\"></prism-block>\n    </section>\n\n    <hr/>\n\n    <h1 class=\"title\"> > Share the <code>Observable</code> </h1>\n\n    <ul>\n      <li *ngFor=\"let choice of colors\">\n        <a\n          routerLinkActive=\"active-link\"\n          [routerLink]=\"['./']\"\n          [queryParams]=\"{ color: choice.color}\"\n          [routerLinkActiveOptions]=\"{ exact: true }\">{{ choice.color }} </a>\n      </li>\n      <li>\n        <a routerLinkActive=\"active-link\" [routerLink]=\"['./']\" [routerLinkActiveOptions]=\"{ exact: true }\"> none </a>\n      </li>\n    </ul>\n\n\n    <div class=\"color-output\">\n      <div *ngFor=\"let choice of colors\" [ngStyle]=\"{'border-color': (_color | async) === choice.color ? choice.color : null }\"> {{ choice.color }}</div>\n    </div>\n\n    <section class=\"bullet-points\">\n      <ul title=\"overview points\" [style.color]=\"_color | async\">\n        <li> The number of executions is: {{ _count }}</li>\n        <li> This color is {{ _color | async }} </li>\n      </ul>\n    </section>\n\n    <section class=\"code-block\">\n      <prism-block [code]=\"_componentCode\" language=\"typescript\"></prism-block>\n    </section>\n\n  </section>\n</main>\n"
+module.exports = "<main>\n  <section class=\"content\">\n    <app-arrow-navigation id=\"right\"><a routerLink=\"/routing/auxiliary-routes/\"><i class=\"material-icons\">keyboard_arrow_right</i></a></app-arrow-navigation>\n    <app-arrow-navigation id=\"left\"><a routerLink=\"\"><i class=\"material-icons\">keyboard_arrow_left</i></a></app-arrow-navigation>\n    <h1 class=\"title\"> > Configuration is just an Array of Objects </h1>\n    <section class=\"code-block\">\n      <prism-block [code]=\"routerConfiguration\" language=\"typescript\"></prism-block>\n    </section>\n    Taken from <a href=\"https://angular.io/guide/router#configuration\" target=\"_blank\">here</a>.\n\n\n    <h1 class=\"title\"> > Routes are reactive </h1>\n    <p> what isn't? 'namsayin </p>\n    <p> let's talk about Hot vs Cold Observable while we're here. <a href=\"https://medium.com/@benlesh/hot-vs-cold-observables-f8094ed53339\" target=\"_blank\">More Info via Ben Lesh</a> </p>\n\n    <ul>\n      <li *ngFor=\"let choice of colors\">\n        <a\n          routerLinkActive=\"active-link\"\n          [routerLink]=\"['./']\"\n          [queryParams]=\"{ color: choice.color}\"\n          [routerLinkActiveOptions]=\"{ exact: true }\">{{ choice.color }} </a>\n      </li>\n    </ul>\n\n\n    <div class=\"color-output\">\n      <div *ngFor=\"let choice of colors\" [ngStyle]=\"{'border-color': (color | async) === choice.color ? choice.color : null }\"> {{ choice.color }}</div>\n    </div>\n\n    <section class=\"bullet-points\">\n      <ul title=\"overview points\" [style.color]=\"color | async\">\n        <li> The number of executions is: {{ count }}</li>\n        <li> This color is {{ color | async }} </li>\n      </ul>\n    </section>\n\n    <section class=\"code-block\">\n      <prism-block [code]=\"componentCode\" language=\"typescript\"></prism-block>\n    </section>\n\n    <section class=\"code-block\">\n      <prism-block [code]=\"templateCode\" language=\"html\"></prism-block>\n    </section>\n\n    <hr/>\n\n    <h1 class=\"title\"> > Share the <code>Observable</code> </h1>\n\n    <ul>\n      <li *ngFor=\"let choice of colors\">\n        <a\n          routerLinkActive=\"active-link\"\n          [routerLink]=\"['./']\"\n          [queryParams]=\"{ color: choice.color}\"\n          [routerLinkActiveOptions]=\"{ exact: true }\">{{ choice.color }} </a>\n      </li>\n    </ul>\n\n\n    <div class=\"color-output\">\n      <div *ngFor=\"let choice of colors\" [ngStyle]=\"{'border-color': (_color | async) === choice.color ? choice.color : null }\"> {{ choice.color }}</div>\n    </div>\n\n    <section class=\"bullet-points\">\n      <ul title=\"overview points\" [style.color]=\"_color | async\">\n        <li> The number of executions is: {{ _count }}</li>\n        <li> This color is {{ _color | async }} </li>\n      </ul>\n    </section>\n\n    <section class=\"code-block\">\n      <prism-block [code]=\"_componentCode\" language=\"typescript\"></prism-block>\n    </section>\n\n  </section>\n</main>\n"
 
 /***/ }),
 
@@ -1305,7 +1318,7 @@ var RouterConfigurationComponent = (function () {
         this.route = route;
         this.routerConfiguration = "\nconst appRoutes: Routes = [\n  { path: 'crisis-center', component: CrisisListComponent },\n  { path: 'hero/:id',      component: HeroDetailComponent },\n  {\n    path: 'heroes',\n    component: HeroListComponent,\n    data: { title: 'Heroes List' }\n  },\n  { path: '',\n    redirectTo: '/heroes',\n    pathMatch: 'full'\n  },\n  { path: '**', component: PageNotFoundComponent }\n];\n\n@NgModule({\n  imports: [\n    RouterModule.forRoot(\n      appRoutes,\n      { enableTracing: true } // <-- debugging purposes only\n    )\n    // other imports here\n  ],\n  ...\n})\nexport class AppModule { }\n";
         this.componentCode = "\n...\n  colors = [\n    { color: 'red' },\n    { color: 'green' },\n    { color: 'blue' }\n  ];\n\n  color: Observable<string>;\n  count = 0;\n\n  constructor(private route: ActivatedRoute) { }\n\n  ngOnInit() {\n    this.color = this.route.queryParamMap\n      .map( (obj: any) => obj.params.color ? obj.params.color : 'inherit')\n      .do(_ => ++this.count);\n  }\n...\n";
-        this.templateCode = "\n<ul>\n  <li *ngFor=\"let choice of colors\">\n    <a\n      routerLinkActive=\"active-link\"\n      [routerLink]=\"['./']\"\n      [queryParams]=\"{ color: choice.color}\"\n      [routerLinkActiveOptions]=\"{ exact: true }\">\n      {{ choice.color }} \n    </a>\n  </li>\n  <li>\n    <a routerLinkActive=\"active-link\" [routerLink]=\"['./']\" [routerLinkActiveOptions]=\"{ exact: true }\"> none </a>\n  </li>\n</ul>\n\n<div class=\"color-output\">\n  <div \n    *ngFor=\"let choice of colors\" \n    [ngStyle]=\"{'border-color': (color | async) === choice.color ? choice.color : null }\"> \n    {{ choice.color }}\n  </div>\n</div>\n\n<section class=\"bullet-points\">\n  <ul title=\"overview points\" [style.color]=\"color | async\">\n    <li> The number of executions is: {{ count }}</li>\n    <li> This color is {{ color | async }} </li>\n  </ul>\n</section>\n";
+        this.templateCode = "\n<ul>\n  <li *ngFor=\"let choice of colors\">\n    <a\n      routerLinkActive=\"active-link\"\n      [routerLink]=\"['./']\"\n      [queryParams]=\"{ color: choice.color}\"\n      [routerLinkActiveOptions]=\"{ exact: true }\">\n      {{ choice.color }} \n    </a>\n  </li>\n</ul>\n\n<div class=\"color-output\">\n  <div \n    *ngFor=\"let choice of colors\" \n    [ngStyle]=\"{'border-color': (color | async) === choice.color ? choice.color : null }\"> \n    {{ choice.color }}\n  </div>\n</div>\n\n<section class=\"bullet-points\">\n  <ul title=\"overview points\" [style.color]=\"color | async\">\n    <li> The number of executions is: {{ count }}</li>\n    <li> This color is {{ color | async }} </li>\n  </ul>\n</section>\n";
         this._componentCode = "\n  _color: Observable<string>;\n  _count = 0;\n  \n  ngOnInit() {\n    this._color = this.route.queryParamMap\n      .map( (obj: any) => obj.params.color ? obj.params.color : 'inherit')\n      .do(_ => ++this._count)\n      .share();\n  }\n";
         this.colors = [
             { color: 'red' },
