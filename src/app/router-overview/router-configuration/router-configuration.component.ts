@@ -102,6 +102,15 @@ export class AppModule { }
   }
 `;
 
+  _templateCode_ = `
+  <section class="bullet-points" *ngIf="(_color_ | async) as resolvedColor" >
+    <ul title="overview points" [style.color]="resolvedColor">
+      <li> The number of executions is: {{ _count_ }}</li>
+      <li> This color is {{ resolvedColor }} </li>
+    </ul>
+  </section>
+`;
+
 
   colors = [
     { color: 'red' },
@@ -111,8 +120,10 @@ export class AppModule { }
 
   color: Observable<string>;
   _color: Observable<string>;
+  _color_: Observable<string>;
   count = 0;
   _count = 0;
+  _count_ = 0;
 
   constructor(private route: ActivatedRoute) { }
 
@@ -125,6 +136,10 @@ export class AppModule { }
       .map( (obj: any) => obj.params.color ? obj.params.color : 'inherit')
       .do(_ => ++this._count)
       .share();
+
+    this._color_ = this.route.queryParamMap
+      .map( (obj: any) => obj.params.color ? obj.params.color : 'inherit')
+      .do(_ => console.log(`_count_: ${++this._count_}`) );
 
   }
 }

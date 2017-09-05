@@ -45,33 +45,37 @@
 
     <hr/>
 
-    <h1 class="title"> > Share the <code>Observable</code> </h1>
-
-    <ul>
-      <li *ngFor="let choice of colors">
-        <a
-          routerLinkActive="active-link"
-          [routerLink]="['./']"
-          [queryParams]="{ color: choice.color}"
-          [routerLinkActiveOptions]="{ exact: true }">{{ choice.color }} </a>
-      </li>
-    </ul>
-
-
-    <div class="color-output">
-      <div *ngFor="let choice of colors" [ngStyle]="{'border-color': (_color | async) === choice.color ? choice.color : null }"> {{ choice.color }}</div>
-    </div>
+    <h1 class="title"> > Better version </h1>
 
     <section class="bullet-points">
       <ul title="overview points" [style.color]="_color | async">
+        <li> There are 2 references to <code> _color </code> managed by an <code> async pipe </code>. Expect 2x amount shown when not shared. </li>
         <li> The number of executions is: {{ _count }}</li>
         <li> This color is {{ _color | async }} </li>
       </ul>
     </section>
 
+    <h1 class="title"> > Share the <code>Observable</code> </h1>
+
     <section class="code-block">
       <prism-block [code]="_componentCode" language="typescript"></prism-block>
     </section>
+
+    <h1 class="title"> > Resolve Observable Once <code>Observable</code> </h1>
+
+    <section class="bullet-points" *ngIf="(_color_ | async) as resolvedColor" >
+      <ul title="overview points" [style.color]="resolvedColor">
+        <li> There is only 1 references to <code> _color_ </code> managed by an <code> async pipe </code>.</li>
+        <li> The number of executions is: {{ _count_ }}</li>
+        <li> This color is {{ resolvedColor }} </li>
+      </ul>
+    </section>
+
+    <section class="code-block">
+      <prism-block [code]="_templateCode_" language="typescript"></prism-block>
+    </section>
+
+
 
   </section>
 </main>
