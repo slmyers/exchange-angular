@@ -51,7 +51,6 @@
 
     <section class="bullet-points">
       <ul title="overview points" [style.color]="_color | async">
-        <li> There are 2 references to <code> _color </code> managed by an <code> async pipe </code>. Expect 2x amount shown when not shared. </li>
         <li> The number of executions is: {{ _count }}</li>
         <li> This color is {{ _color | async }} </li>
       </ul>
@@ -67,7 +66,6 @@
 
     <section class="bullet-points" *ngIf="(_color_ | async) as resolvedColor" >
       <ul title="overview points" [style.color]="resolvedColor">
-        <li> There is only 1 references to <code> _color_ </code> managed by an <code> async pipe </code>.</li>
         <li> The number of executions is: {{ _count_ }}</li>
         <li> This color is {{ resolvedColor }} </li>
       </ul>
