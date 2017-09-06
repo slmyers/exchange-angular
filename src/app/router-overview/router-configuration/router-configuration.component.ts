@@ -2,7 +2,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { ActivatedRoute } from '@angular/router';
-import 'rxjs/add/operator/scan';
+import 'rxjs/add/operator/shareReplay';
 import 'rxjs/add/operator/share';
 
 @Component({
@@ -97,8 +97,8 @@ export class AppModule { }
   ngOnInit() {
     this._color = this.route.queryParamMap
       .map( (obj: any) => obj.params.color ? obj.params.color : 'inherit')
-      .do(_ => ++this._count)
-      .share();
+      .shareReplay();
+      .do(_ => this._count++)
   }
 `;
 
@@ -130,16 +130,16 @@ export class AppModule { }
   ngOnInit() {
     this.color = this.route.queryParamMap
       .map( (obj: any) => obj.params.color ? obj.params.color : 'inherit')
-      .do(_ => ++this.count);
+      .do(_ => this.count++);
 
     this._color = this.route.queryParamMap
       .map( (obj: any) => obj.params.color ? obj.params.color : 'inherit')
-      .do(_ => ++this._count)
+      .do(_ => this._count++)
       .share();
 
     this._color_ = this.route.queryParamMap
       .map( (obj: any) => obj.params.color ? obj.params.color : 'inherit')
-      .do(_ => console.log(`_count_: ${++this._count_}`) );
+      .do(_ => console.log(`_count_: ${this._count_++}`) );
 
   }
 }

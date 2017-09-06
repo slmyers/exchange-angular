@@ -45,7 +45,9 @@
 
     <hr/>
 
-    <h1 class="title"> > Better version </h1>
+    <h1 class="title" [style.margin-bottom]="'3em'"> > Better versions </h1>
+
+    <h1 class="title"> > Share the <code>Observable</code> </h1>
 
     <section class="bullet-points">
       <ul title="overview points" [style.color]="_color | async">
@@ -55,13 +57,13 @@
       </ul>
     </section>
 
-    <h1 class="title"> > Share the <code>Observable</code> </h1>
+
 
     <section class="code-block">
       <prism-block [code]="_componentCode" language="typescript"></prism-block>
     </section>
 
-    <h1 class="title"> > Resolve Observable Once <code>Observable</code> </h1>
+    <h1 class="title"> > Resolve <code>Observable</code> Once  </h1>
 
     <section class="bullet-points" *ngIf="(_color_ | async) as resolvedColor" >
       <ul title="overview points" [style.color]="resolvedColor">
