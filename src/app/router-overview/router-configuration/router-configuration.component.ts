@@ -11,59 +11,39 @@ import 'rxjs/add/operator/share';
   styleUrls: ['./router-configuration.component.css']
 })
 export class RouterConfigurationComponent implements OnInit {
-  routerConfiguration = `
-const appRoutes: Routes = [
-  { path: 'crisis-center', component: CrisisListComponent },
-  { path: 'hero/:id',      component: HeroDetailComponent },
-  {
-    path: 'heroes',
-    component: HeroListComponent,
-    data: { title: 'Heroes List' }
-  },
-  { path: '',
-    redirectTo: '/heroes',
-    pathMatch: 'full'
-  },
-  { path: '**', component: PageNotFoundComponent }
-];
-
-@NgModule({
-  imports: [
-    RouterModule.forRoot(
-      appRoutes,
-      { enableTracing: true } // <-- debugging purposes only
-    )
-    // other imports here
-  ],
-  ...
-})
-export class AppModule { }
-`;
-
   componentCode = `
-...
+// my-component.component.ts
+export class MyComponent implements OnInit {
   colors = [
     { color: 'red' },
     { color: 'green' },
     { color: 'blue' }
   ];
 
+  // an Observable (in this context) is a stream of events that emit over time
   color: Observable<string>;
   count = 0;
 
+  // ActivatedRoute provides various interfaces related to the current route
   constructor(private route: ActivatedRoute) { }
 
+  // this function will run when the component is instantiated 
   ngOnInit() {
     this.color = this.route.queryParamMap
+      // extract the query parameter associated with color, if not there then use inherit
       .map( (obj: any) => obj.params.color ? obj.params.color : 'inherit')
-      .do(_ => ++this.count);
+      // this.count represents how many times this observable chain is executed
+      // (we'll get back to this)
+      .do(_ => this.count++);
   }
-...
+}
 `;
 
   templateCode = `
+<!-- my-component.component.html -->
 <ul>
   <li *ngFor="let choice of colors">
+    <!-- link to same page with different query params, apply 'active-link' style to the activated link -->
     <a
       routerLinkActive="active-link"
       [routerLink]="['./']"
@@ -74,6 +54,8 @@ export class AppModule { }
   </li>
 </ul>
 
+<!-- the query param will change the border color (if the color matches the query param) -->
+<!-- notice we pass the 'color' variable through the 'async' pipe. -->
 <div class="color-output">
   <div 
     *ngFor="let choice of colors" 
@@ -82,6 +64,7 @@ export class AppModule { }
   </div>
 </div>
 
+<!-- pass color through the async pipe twice more -->
 <section class="bullet-points">
   <ul title="overview points" [style.color]="color | async">
     <li> The number of executions is: {{ count }}</li>
@@ -97,18 +80,21 @@ export class AppModule { }
   ngOnInit() {
     this._color = this.route.queryParamMap
       .map( (obj: any) => obj.params.color ? obj.params.color : 'inherit')
-      .shareReplay();
       .do(_ => this._count++)
+      // we share the previous results to the subscribers
+      .share();
+      
   }
 `;
 
   _templateCode_ = `
-  <section class="bullet-points" *ngIf="(_color_ | async) as resolvedColor" >
-    <ul title="overview points" [style.color]="resolvedColor">
-      <li> The number of executions is: {{ _count_ }}</li>
-      <li> This color is {{ resolvedColor }} </li>
-    </ul>
-  </section>
+<!-- we can resolve the observable once and make a local variable available -->
+<section class="bullet-points" *ngIf="(_color_ | async) as resolvedColor" >
+  <ul title="overview points" [style.color]="resolvedColor">
+    <li> The number of executions is: {{ _count_ }}</li>
+    <li> This color is {{ resolvedColor }} </li>
+  </ul>
+</section>
 `;
 
 

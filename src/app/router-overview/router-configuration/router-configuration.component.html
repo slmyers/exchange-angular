@@ -1,17 +1,19 @@
 <main>
   <section class="content">
-    <app-arrow-navigation id="right"><a routerLink="/routing/auxiliary-routes/"><i class="material-icons">keyboard_arrow_right</i></a></app-arrow-navigation>
+    <app-arrow-navigation id="right"><a routerLink="/routing/lazy-load/"><i class="material-icons">keyboard_arrow_right</i></a></app-arrow-navigation>
     <app-arrow-navigation id="left"><a routerLink=""><i class="material-icons">keyboard_arrow_left</i></a></app-arrow-navigation>
-    <h1 class="title"> > Configuration is just an Array of Objects </h1>
-    <section class="code-block">
-      <prism-block [code]="routerConfiguration" language="typescript"></prism-block>
-    </section>
-    Taken from <a href="https://angular.io/guide/router#configuration" target="_blank">here</a>.
 
-
-    <h1 class="title"> > Routes are reactive </h1>
+    <h1 class="title"> > Routes are reactive > Cold vs Hot Observables </h1>
     <p> what isn't? 'namsayin </p>
     <p> let's talk about Hot vs Cold Observable while we're here. <a href="https://medium.com/@benlesh/hot-vs-cold-observables-f8094ed53339" target="_blank">More Info via Ben Lesh</a> </p>
+
+    <section class="code-block">
+      <prism-block [code]="componentCode" language="typescript"></prism-block>
+    </section>
+
+    <section class="code-block">
+      <prism-block [code]="templateCode" language="html"></prism-block>
+    </section>
 
     <ul>
       <li *ngFor="let choice of colors">
@@ -33,14 +35,6 @@
         <li> The number of executions is: {{ count }}</li>
         <li> This color is {{ color | async }} </li>
       </ul>
-    </section>
-
-    <section class="code-block">
-      <prism-block [code]="componentCode" language="typescript"></prism-block>
-    </section>
-
-    <section class="code-block">
-      <prism-block [code]="templateCode" language="html"></prism-block>
     </section>
 
     <hr/>
