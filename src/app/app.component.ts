@@ -26,7 +26,7 @@ export class AppComponent implements OnInit {
       'example'
     ],
     'routing': [
-      'configuration',
+      'reactive-example',
       'lazy-load'
     ],
     'tooling': [

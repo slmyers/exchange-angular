@@ -14,17 +14,17 @@
 
     <section class="bullet-points">
       <form #f="ngForm" (ngSubmit)="submit(f)">
-        <span> <input placeholder="name" [(ngModel)]="name" name="name" required /> </span>
-        <span> <input placeholder="age" [(ngModel)]="age" name="age" pattern="[0-9]+" required /> </span>
+        <input placeholder="name" [(ngModel)]="name" name="name" required />
+        <input placeholder="age" [(ngModel)]="age" name="age" pattern="[0-9]+" required />
         <button type="submit" [disabled]="!f.valid">Submit</button>
       </form>
       <ul title="overview points">
         <li>
-          This is a <code>template</code> driven form`. Very similar to an AngularJS form.
+          This is a <code>template driven form </code>. Very similar to an AngularJS form.
         </li>
 
         <li>
-          How to get a reference to the form variable? How to manipulate programmatically?
+          How to get a reference to the form variable? How to manipulate programmatically? How to react to changes?
         </li>
       </ul>
     </section>
@@ -39,8 +39,8 @@
     <section class="bullet-points">
       <p> Async validation ran: {{count}} times.</p>
       <form class="reactive-form" [ngStyle]="{'border': myForm.valid ? 'green dashed 5px' : 'red solid 5px'}"  novalidate (ngSubmit)="submit(myForm)" [formGroup]="myForm">
-        <span> <input placeholder="name" formControlName="name"/> </span>
-        <span> <input placeholder="age" formControlName="age"/> </span>
+        <input placeholder="name" formControlName="name"/>
+        <input placeholder="age" formControlName="age"/>
         <button type="submit" [disabled]="!myForm.valid">Submit</button>
       </form>
       <ul title="overview points">

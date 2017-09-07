@@ -64,7 +64,7 @@ const appRoutes: Routes = [
     path: 'routing',
     component: RouterOverviewComponent,
     children: [
-      { path: 'configuration', component: RouterConfigurationComponent },
+      { path: 'reactive-example', component: RouterConfigurationComponent },
       { path: 'auxiliary-routes', component: AuxiliaryRoutesComponent },
       { path: 'lazy-load',  loadChildren: 'app/lazy/lazy.module#LazyModule' },
     ]
