@@ -57,12 +57,12 @@ export class MyReactiveFormComponent {
   ngOnInit() {
     this.form = this.fs.form;
 
-    // an Observable interface into a form control (the text input)
+    // FormControl#valueChanges is an Observable interface that emits changes -- think onchange.
     this.brands = this.form.get('brand').valueChanges
       .startWith(null)
       .map(val => val ? this.filter(val) : this.brandOptions);
 
-    // our service will push the results of our fake API here
+    // our service will push the results of our fake API through our local Observable
     this.content$ = this.fs.content$.asObservable();
   }
 
@@ -76,7 +76,7 @@ export class MyReactiveFormComponent {
   formServiceDescription = `
 export class FormService {
   form: FormGroup;
-  // a Subject can be used to push or pull events/values
+  // a Subject can be used to push or pull events/values. We will use to push results from query to consumer(s).
   content$: Subject<any>;
 
   constructor(private fb: FormBuilder, private api: FakeApiService) {
@@ -99,7 +99,7 @@ export class FormService {
     return (color === '' || brand === '') ? { emptyField: true } : null;
   }
 
-  // used to make fake API call and push content via Subject
+  // used to make fake API call and push content via content$
   validateAsync(c: FormControl) {
     return Observable.of(c.value) // lift our form value
       .mergeMap( val => this.api.getByBoth(val.brand, val.color) ) // make call and resolve value
@@ -110,8 +110,10 @@ export class FormService {
 `;
 
   componentTemplateDescription = `
+<!-- reference our FormGroup -->
 <section class="example" [formGroup]="form">
 
+  <!-- the control for the color property of our form -->
   <md-select formControlName="color" placeholder="Select Color" [style.border-left-color]="form.value.color">
     <md-option *ngFor="let option of options" [value]="option">
       <span [style.border-left-color]="option"> {{ option }}</span>
@@ -119,11 +121,13 @@ export class FormService {
   </md-select>
 
   <md-input-container>
+    <!-- the control for the brand property of our form -->
     <input type="text" placeholder="brand" mdInput formControlName="brand" [mdAutocomplete]="auto">
   </md-input-container>
 
   <!-- reacts to changes in the text input -->
   <md-autocomplete #auto="mdAutocomplete">
+    <!-- the brands Observable populates our autofill -->
     <md-option *ngFor="let option of brands | async" [value]="option">
       {{ option }}
     </md-option>
@@ -131,6 +135,7 @@ export class FormService {
 
 </section>
 
+<!-- the results from the fake search -->
 <section class="centered">
     <md-divider></md-divider>
 

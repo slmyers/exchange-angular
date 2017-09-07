@@ -60,9 +60,7 @@ export class FakeApiService {
 
     if (!manufacturer) return this.resolveValueWithDelay([], 200);
 
-    const items = manufacturer.filter(i => i.color === color);
-
-    return this.resolveValueWithDelay(items, 200);
+    return this.resolveValueWithDelay( manufacturer.filter(i => i.color === color) , 200);
   }
 
   resolveValueWithDelay(val, delay) {

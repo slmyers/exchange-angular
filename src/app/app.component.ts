@@ -19,7 +19,6 @@ export class AppComponent implements OnInit {
     'components': [
       'intro',
       'templates',
-      'change-detection'
     ],
     'reactive-forms': [
       'comparison-with-template-forms',

@@ -20,15 +20,16 @@ export class MyComponent implements OnInit {
     { color: 'blue' }
   ];
 
-  // an Observable (in this context) is a stream of events that emit over time
+  // an Observable, in this context, is a string that changes over time.
   color: Observable<string>;
   count = 0;
 
-  // ActivatedRoute provides various interfaces related to the current route
+  // ActivatedRoute provides various interfaces to reflect the current route.
   constructor(private route: ActivatedRoute) { }
 
   // this function will run when the component is instantiated 
   ngOnInit() {
+    // ActivatedRoute#queryParamMap is an Observable of the query params.
     this.color = this.route.queryParamMap
       // extract the query parameter associated with color, if not there then use inherit
       .map( (obj: any) => obj.params.color ? obj.params.color : 'inherit')
@@ -47,8 +48,7 @@ export class MyComponent implements OnInit {
     <a
       routerLinkActive="active-link"
       [routerLink]="['./']"
-      [queryParams]="{ color: choice.color}"
-      [routerLinkActiveOptions]="{ exact: true }">
+      [queryParams]="{ color: choice.color}">
       {{ choice.color }} 
     </a>
   </li>
@@ -71,6 +71,7 @@ export class MyComponent implements OnInit {
     <li> This color is {{ color | async }} </li>
   </ul>
 </section>
+<!-- we have 5 total subscriptions to the color Observable in this template (using the async pipe) -->
 `;
 
   _componentCode = `

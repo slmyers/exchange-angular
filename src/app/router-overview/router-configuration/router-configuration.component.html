@@ -5,7 +5,7 @@
 
     <h1 class="title"> > Routes are reactive > Cold vs Hot Observables </h1>
     <p> what isn't? 'namsayin </p>
-    <p> let's talk about Hot vs Cold Observable while we're here. <a href="https://medium.com/@benlesh/hot-vs-cold-observables-f8094ed53339" target="_blank">More Info via Ben Lesh</a> </p>
+    <p> <a href="https://medium.com/@benlesh/hot-vs-cold-observables-f8094ed53339" target="_blank">More about Hot vs Cold Observables from Ben Lesh</a> </p>
 
     <section class="code-block">
       <prism-block [code]="componentCode" language="typescript"></prism-block>
@@ -20,8 +20,7 @@
         <a
           routerLinkActive="active-link"
           [routerLink]="['./']"
-          [queryParams]="{ color: choice.color}"
-          [routerLinkActiveOptions]="{ exact: true }">{{ choice.color }} </a>
+          [queryParams]="{ color: choice.color}">{{ choice.color }} </a>
       </li>
     </ul>
 
